@@ -380,4 +380,4 @@ def main():
 
 root_splash_screen.after(3000, main)
 
-mainloop()
+mainloop() 
