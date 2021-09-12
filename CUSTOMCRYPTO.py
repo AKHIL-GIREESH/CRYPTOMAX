@@ -273,7 +273,7 @@ def blockchain():
             rc = RCGENERATOR(x[i])
             megablock[str(int(prevrc) + int(rc))] = [prevrc,x[i]]
             prevrc = str(int(prevrc) + int(rc)) 
-    print(megablock)
+    print(megablock) 
 
 
 
