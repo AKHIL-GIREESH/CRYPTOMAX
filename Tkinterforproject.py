@@ -46,7 +46,7 @@ def main():
             pass
         
             def pro_homed():
-                root_vpd.withdraw()
+                root_vpd.destroy()
                 root1d.deiconify()
                 
                 
@@ -64,7 +64,7 @@ def main():
             root_trd.configure(bg = "#202020")
             pass
             def tran_homed():
-                root_trd.withdraw()
+                root_trd.destroy()
                 root1d.deiconify()
                 
             transaction_home_buttond = Button(root_trd,text = "Home",padx =50, pady = 25,bg = "#CF780A",fg = "#202020" ,command = tran_homed)
@@ -81,7 +81,7 @@ def main():
             root_ledd.configure(bg = "#202020")
             pass
             def led_homed():
-                root_ledd.withdraw()
+                root_ledd.destroy()
                 root1d.deiconify()
 
             led_home_buttond = Button(root_ledd,text = "Home",padx =50, pady = 25,bg = "#CF780A",fg = "#202020" ,command = led_homed)
@@ -98,7 +98,7 @@ def main():
             root_blcd.configure(bg = "#202020")
             pass
             def mining_homed():
-                root_blcd.withdraw()
+                root_blcd.destroy()
                 root1d.deiconify()
 
             mining_home_buttond = Button(root_blcd,text = "Home",padx =50, pady = 25,bg = "#CF780A",fg = "#202020" ,command = mining_homed)
@@ -115,7 +115,7 @@ def main():
             root_cond.configure(bg = "#202020")
             pass
             def con_homed():
-                root_cond.withdraw()
+                root_cond.destroy()
                 root1d.deiconify()
 
             conversion_entryd = Entry(root_cond , width = 25 , bg = "#484848",fg = "white")
@@ -181,7 +181,7 @@ def main():
             pass
         
             def pro_home():
-                root_vp.withdraw()
+                root_vp.destroy()
                 root1.deiconify()
                 
                 
@@ -199,7 +199,7 @@ def main():
             root_tr.configure(bg = "white")
             pass
             def tran_home():
-                root_tr.withdraw()
+                root_tr.destroy()
                 root1.deiconify()
                 
             transaction_home_button = Button(root_tr,text = "Home",padx =50, pady = 25,bg = "#484848",fg = "white" ,command = tran_home)
@@ -216,7 +216,7 @@ def main():
             root.configure(bg = "white")
             pass
             def led_home():
-                root_led.withdraw()
+                root_led.destroy()
                 root1.deiconify()
 
             led_home_button = Button(root_led,text = "Home",padx =50, pady = 25,bg = "#484848",fg = "white" ,command = led_home)
@@ -233,7 +233,7 @@ def main():
             root_blc.configure(bg = "white")
             pass
             def mining_home():
-                root_blc.withdraw()
+                root_blc.destroy()
                 root1.deiconify()
 
             mining_home_button = Button(root_blc,text = "Home",padx =50, pady = 25,bg = "#484848",fg = "white" ,command = mining_home)
@@ -261,7 +261,7 @@ def main():
                 
             
             def con_home():
-                root_con.withdraw()
+                root_con.destroy()
                 root1.deiconify()
 
             convert_button = Button(root_con , text = "Convert",padx =25, pady = 15,bg = "#484848",fg = "white" ,command =convert)
