@@ -24,6 +24,10 @@ def bar():
     load['value']=200
     tk.update_idletasks()
     time.sleep(1)
-load.pack()
+load.pack(padx=300, pady=300)
 Button(tk, text='START', command=bar).pack()
+exitbutton=Button(tk, text='exit', command=tk.destroy).pack()
+
+tk.attributes('-fullscreen', True)
+
 mainloop()
