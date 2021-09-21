@@ -262,16 +262,27 @@ def main():
                         myobj = mydb.cursor()
 
                         global l   
-                        list1 = [username1.get() , l[0][1]]
-                        command = "UPDATE users SET username = %s WHERE username = %s"
-                        myobj.execute(command,l)
+                        list1 = [username1.get() , l[0][0]]
+                        command = "UPDATE users SET username = %s WHERE userid = %s"
+                        myobj.execute(command,list1)
                         mydb.commit()
-
+                        l[0][1] = username1.get()
                     else:
                         messagebox.showerror("Oops!", "Enter the username correctly")
                         
                 checkname = Button(root_username ,bg = "#484848" , fg = "white",command = checking)
                 checkname.pack()
+
+                def userhome():
+                    root_username.withdraw()
+                    root_vp.deiconify()
+
+                Luser2 = Label(root1 , text = "       ",bg = "white")
+                Luser2.pack()
+                
+                userhome = Button(root_username ,padx =50, pady = 25,bg = "#484848",fg = "white" ,command = userhome)
+                userhome.pack()
+
                 
             change_username_button = Button(root_vp,text = "Change Username" ,padx =50, pady = 25,bg = "#484848",fg = "white" ,command = change_username)
             change_username_button.pack()
@@ -302,16 +313,26 @@ def main():
                         myobj = mydb.cursor()
 
                         global l   
-                        list2 = [password.get() , l[0][2]]
-                        command = "UPDATE users SET username = %s WHERE username = %s"
-                        myobj.execute(command,l)
+                        list2 = [password.get() , l[0][0]]
+                        command = "UPDATE users SET password= %s WHERE userid = %s"
+                        myobj.execute(command,list2)
                         mydb.commit()
-
+                        l[0][2] = password.get()
                     else:
                         messagebox.showerror("Oops!", "Enter the password correctly")
                         
                 checkpassword = Button(root_password ,bg = "#484848" , fg = "white",command = checking_password)
                 checkpassword.pack()
+
+                def userhome():
+                    root_password.withdraw()
+                    root_vp.deiconify()
+
+                Lpass2 = Label(root_password , text = "       ",bg = "white")
+                Lpass2.pack()
+                
+                passhome = Button(root_password ,padx =50, pady = 25,bg = "#484848",fg = "white" ,command = passhome)
+                passhome.pack()
                 
             change_password_button = Button(root_vp,text = "Change password" ,padx =50, pady = 25,bg = "#484848",fg = "white" ,command = change_password)
             change_password_button.pack()
@@ -331,12 +352,162 @@ def main():
             root_tr = Tk()
             root_tr.geometry("1920x1080")
             root_tr.configure(bg = "white")
-            pass
+            
+            def tran_deposit():
+                root_tr.withdraw()
+                root_deposit = Tk()
+                root_deposit.geometry("1920x1080")
+                root_deposit.configure(bg = "white")
 
+                depol1 = Label(root_deposit , text = "Enter the amount to be deposited")
+                depol1.pack()
+
+                depoentry1 = Entry(root_deposit , bg = "#484848" , fg = "white")
+                depoentry1.pack()
+
+                Ltran3 = Label(root_deposit , text = "       ",bg = "white")
+                Ltran3.pack()
+                
+                def despositing():
+                    import mysql.connector
+                    mydb = mysql.connector.connect(host="localhost",user="root",passwd = "lmao",database = "CRYPTOCURRENCY")
+                    myobj = mydb.cursor()
+
+                    global l
+
+                    list1 = [int(depoentry1.get()) + l[0][3] , l[0][0]]
+                    command = "UPDATE users SET balance = %s WHERE userid = %s"
+                    myobj.execute(command,list1)
+                    mydb.commit()
+                    l[0][3] += int(depoentry1.get()) 
+
+                    depol2 = Label(root_deposit , text= "Deposited successfully")
+                    depol.pack()
+
+                def depohome():
+                    root_deposit.withdraw()
+                    root_tr.deiconify()
+                    
+                depobutton = Button(root_deposit ,padx =50, pady = 25,bg = "#484848",fg = "white" ,command = depositing)
+                depobutton.pack()
+
+                Ltran2 = Label(root_deposit , text = "       ",bg = "white")
+                Ltran2.pack()
+                
+                depohome = Button(root_deposit ,padx =50, pady = 25,bg = "#484848",fg = "white" ,command = depohome)
+                depohome.pack()
+
+            def tran_pay():
+                root_tr.withdraw()
+                root_pay = Tk()
+                root_pay.geometry("1920x1080")
+                root_pay.configure(bg = "white")
+
+                payl1 = Label(root_pay , text = "Enter the amount to be payed")
+                payl1.pack()
+
+                payentry1 = Entry(root_pay , bg = "#484848" , fg = "white")
+                payentry1.pack()
+
+                Lpay3 = Label(root_pay , text = "       ",bg = "white")
+                Lpay3.pack()
+
+                payl2 = Label(root_pay , text = "Enter the name of the user")
+                payl2.pack()
+
+                payentry2 = Entry(root_pay , bg = "#484848" , fg = "white")
+                payentry2.pack()
+
+                Lpay4 = Label(root_pay , text = "       ",bg = "white")
+                Lpay4.pack()
+
+                def find_user(x):
+                    import mysql.connector
+                    mydb = mysql.connector.connect(host="localhost",user="root",passwd = "lmao",database = "CRYPTOCURRENCY")
+                    myobj = mydb.cursor()
+                    myobj.execute("SELECT username FROM users ")
+                    variable2 = myobj.fetchall()
+                    check = False
+                    for i in variable2:
+                        if i == (x,):
+                            check = True
+                    if check == True:
+                        return True
+                    return False
+
+                def ledger(x,y,z):
+                    list3 = [x+str(y)+z]
+                    with open("PUBLIC_LEDGER.txt","a") as f:
+                        for i in list3:
+                            f.write(i+"\n")
+                    
+                    with open("PUBLIC_LEDGER.txt") as f:
+                        return [i for i in (f.read()).split("\n")]
+
+                def paying():
+                    import mysql.connector
+                    mydb = mysql.connector.connect(host="localhost",user="root",passwd = "lmao",database = "CRYPTOCURRENCY")
+                    myobj = mydb.cursor()
+
+                    global l
+
+                    if find_user(payl2.get()) == True:
+                        x = l[0][3] - int(payl1.get())
+                        l1 = [x,l[0][0]]
+                        command1 = "UPDATE users SET balance = %s WHERE userid =%s"
+                        myobj.execute(command1,l1)
+                        mydb.commit()
+
+                        myobj.execute("SELECT username , balance from users")
+
+                        y = myobj.fetchall()
+                            
+                        for i in y:
+                            if i[0] == payl2.get() :
+                                x = i[1] + int(payl1.get())
+                            
+                            
+                        l2 = [x, payl2.get()]  
+
+                        command = "UPDATE users \
+                                    SET balance = %s \
+                                    WHERE username =%s"
+                        myobj.execute(command,l2)
+                        mydb.commit()
+                        ledger(l[0][1],payl2.get(),payl1.get())
+                    else:
+                        messagebox.showerror("Oops!", "User doesn't exist")
+                
+                def payhome():
+                    root_pay.withdraw()
+                    root_tr.deiconify()
+                    
+                paybutton = Button(root_pay ,padx =50, pady = 25,bg = "#484848",fg = "white" ,command = paying)
+                paybutton.pack()
+
+                Lpay2 = Label(root_pay , text = "       ",bg = "white")
+                Lpay2.pack()
+                
+                payhome = Button(root_pay ,padx =50, pady = 25,bg = "#484848",fg = "white" ,command = payhome)
+                payhome.pack()
+                        
+                
             def tran_home():
                 root_tr.withdraw()
                 root1.deiconify()
-                
+
+            transaction_deposit_button = Button(root_tr ,text ="Deposit",padx =50, pady = 25,bg = "#484848",fg = "white" ,command = tran_deposit)    
+            transaction_deposit_button.pack()
+
+            Ltran1 = Label(root1 , text = "       ",bg = "white")
+            Ltran1.pack()
+
+            transaction_pay_button = Button(root_tr ,text ="Pay",padx =50, pady = 25,bg = "#484848",fg = "white" ,command = tran_pay)    
+            transaction_pay_button.pack()
+
+            Ltran4 = Label(root1 , text = "       ",bg = "white")
+            Ltran4.pack()
+
             transaction_home_button = Button(root_tr,text = "Home",padx =50, pady = 25,bg = "#484848",fg = "white" ,command = tran_home)
             transaction_home_button.pack()
 
@@ -345,6 +516,7 @@ def main():
 
         L4 = Label(root1 , text = "       ",bg = "white")
         L4.pack()
+  
 
         def ledger():
             root1.withdraw()
