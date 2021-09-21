@@ -1,4 +1,5 @@
 from tkinter import *
+from tkinter import messagebox
 
 root_splash_screen = Tk()
 
@@ -46,14 +47,40 @@ def main():
             pass
         
             def pro_homed():
-                root_vpd.destroy()
+                root_vpd.withdraw()
                 root1d.deiconify()
-                
-                
+
+            global l    
+            profile_usernamed = Label(root_vpd , text = l[0][1] , bg = "#CF780A",fg = "#202020")
+            profile_usernamed.pack()
+
+            pl1d = Label(root_vpd , text = "                " , bg = "#CF780A",fg = "#484848")
+            pl1d.pack()
+            
+            profile_passwordd = Label(root_vpd , text = l[0][2] , bg = "#CF780A",fg = "#202020")
+            profile_passwordd.pack()
+
+            pl2d = Label(root_vpd , text = "                " , bg = "#CF780A",fg = "#202020")
+            pl2d.pack()
+
+            profile_balanced = Label(root_vpd , text = l[0][3] , bg = "#CF780A",fg = "#202020")
+            profile_balanced.pack()
+
+            pl3d = Label(root_vpd , text = "                " , bg = "#CF780A",fg = "#202020")
+            pl3d.pack()
+
+            profile_encryptedd = Label(root_vpd , text = l[0][0] , bg = "#CF780A",fg = "#202020")
+            profile_encryptedd.pack()
+
+            pl4d = Label(root_vpd , text = "                " , bg = "#CF780A",fg = "#202020")
+            pl4d.pack()
+                    
             profile_home_buttond = Button(root_vpd,text = "Home",padx =50, pady = 25,bg = "#CF780A",fg = "#202020" ,command = pro_homed)
             profile_home_buttond.pack()
+
         Profile_buttond = Button(root1d,text = "Profile",padx =50, pady = 25,bg = "#CF780A",fg = "#202020" ,command = viewprofiled)
         Profile_buttond.pack()
+
         L3d = Label(root1d, text = "       ",bg = "#202020")
         L3d.pack()
 
@@ -64,7 +91,7 @@ def main():
             root_trd.configure(bg = "#202020")
             pass
             def tran_homed():
-                root_trd.destroy()
+                root_trd.withdraw()
                 root1d.deiconify()
                 
             transaction_home_buttond = Button(root_trd,text = "Home",padx =50, pady = 25,bg = "#CF780A",fg = "#202020" ,command = tran_homed)
@@ -81,7 +108,7 @@ def main():
             root_ledd.configure(bg = "#202020")
             pass
             def led_homed():
-                root_ledd.destroy()
+                root_ledd.withdraw()
                 root1d.deiconify()
 
             led_home_buttond = Button(root_ledd,text = "Home",padx =50, pady = 25,bg = "#CF780A",fg = "#202020" ,command = led_homed)
@@ -98,7 +125,7 @@ def main():
             root_blcd.configure(bg = "#202020")
             pass
             def mining_homed():
-                root_blcd.destroy()
+                root_blcd.withdraw()
                 root1d.deiconify()
 
             mining_home_buttond = Button(root_blcd,text = "Home",padx =50, pady = 25,bg = "#CF780A",fg = "#202020" ,command = mining_homed)
@@ -115,7 +142,7 @@ def main():
             root_cond.configure(bg = "#202020")
             pass
             def con_homed():
-                root_cond.destroy()
+                root_cond.withdraw()
                 root1d.deiconify()
 
             conversion_entryd = Entry(root_cond , width = 25 , bg = "#484848",fg = "white")
@@ -181,14 +208,121 @@ def main():
             pass
         
             def pro_home():
-                root_vp.destroy()
+                root_vp.withdraw()
                 root1.deiconify()
+
+            global l    
+            profile_username = Label(root_vp , text = l[0][1] , bg = "#484848",fg = "white")
+            profile_username.pack()
+
+            pl1 = Label(root_vp , text = "                " , bg = "#484848",fg = "#484848")
+            pl1.pack()
+            
+            profile_password = Label(root_vp , text = l[0][2] , bg = "#484848",fg = "white")
+            profile_password.pack()
+
+            pl2 = Label(root_vp , text = "                " , bg = "#484848",fg = "#484848")
+            pl2.pack()
+
+            profile_balance = Label(root_vp , text = l[0][3] , bg = "#484848",fg = "white")
+            profile_balance.pack()
+
+            pl3 = Label(root_vp , text = "                " , bg = "#484848",fg = "#484848")
+            pl3.pack()
+
+            profile_encrypted = Label(root_vp , text = l[0][0] , bg = "#484848",fg = "white")
+            profile_encrypted.pack()
+
+            pl4 = Label(root_vp , text = "                " , bg = "#484848",fg = "#484848")
+            pl4.pack()
+
+            def change_username():
                 
+                root_vp.withdraw()
+                root_username = Tk()
+                root_username.geometry("1920x1080")
+                root_username.configure(bg = "white")
                 
+                change_username1_label = Label(root_username , text = "Enter the new username")
+                change_username1.pack()
+                
+                change_username1 = Entry(root_username,bg = "#484848" , fg = "white")
+                change_username1.pack()
+
+                change_username2_label = Label(root_username , text = "Re-enter the new username")
+                change_username2.pack()
+                
+                change_username2 = Entry(root_username,bg = "#484848" , fg = "white")
+                change_username2.pack()
+
+                def checking():
+                    if change_username1.get() == change_username2.get():
+                        import mysql.connector
+                        mydb = mysql.connector.connect(host="localhost",user="root",passwd = "lmao",database = "CRYPTOCURRENCY")
+                        myobj = mydb.cursor()
+
+                        global l   
+                        list1 = [username1.get() , l[0][1]]
+                        command = "UPDATE users SET username = %s WHERE username = %s"
+                        myobj.execute(command,l)
+                        mydb.commit()
+
+                    else:
+                        messagebox.showerror("Oops!", "Enter the username correctly")
+                        
+                checkname = Button(root_username ,bg = "#484848" , fg = "white",command = checking)
+                checkname.pack()
+                
+            change_username_button = Button(root_vp,text = "Change Username" ,padx =50, pady = 25,bg = "#484848",fg = "white" ,command = change_username)
+            change_username_button.pack()
+            
+            def change_password():
+
+                root_vp.withdraw()
+                root_password = Tk()
+                root_password.geometry("1920x1080")
+                root_password.configure(bg = "white")
+                
+                change_password1_label = Label(root_password , text = "Enter the new password")
+                change_password1.pack()
+                
+                change_password1 = Entry(root_password,bg = "#484848" , fg = "white")
+                change_password1.pack()
+
+                change_password2_label = Label(root_password , text = "Re-enter the new password")
+                change_password2.pack()
+                
+                change_password2 = Entry(root_password,bg = "#484848" , fg = "white")
+                change_password2.pack()
+
+                def checking_password():
+                    if change_password1.get() == change_password2.get():
+                        import mysql.connector
+                        mydb = mysql.connector.connect(host="localhost",user="root",passwd = "lmao",database = "CRYPTOCURRENCY")
+                        myobj = mydb.cursor()
+
+                        global l   
+                        list2 = [password.get() , l[0][2]]
+                        command = "UPDATE users SET username = %s WHERE username = %s"
+                        myobj.execute(command,l)
+                        mydb.commit()
+
+                    else:
+                        messagebox.showerror("Oops!", "Enter the password correctly")
+                        
+                checkpassword = Button(root_password ,bg = "#484848" , fg = "white",command = checking_password)
+                checkpassword.pack()
+                
+            change_password_button = Button(root_vp,text = "Change password" ,padx =50, pady = 25,bg = "#484848",fg = "white" ,command = change_password)
+            change_password_button.pack()
+                
+
             profile_home_button = Button(root_vp,text = "Home",padx =50, pady = 25,bg = "#484848",fg = "white" ,command = pro_home)
             profile_home_button.pack()
+
         Profile_button = Button(root1,text = "Profile",padx =50, pady = 25,bg = "#484848",fg = "white" ,command = viewprofile)
         Profile_button.pack()
+
         L3 = Label(root1, text = "       ",bg = "white")
         L3.pack()
 
@@ -198,14 +332,17 @@ def main():
             root_tr.geometry("1920x1080")
             root_tr.configure(bg = "white")
             pass
+
             def tran_home():
-                root_tr.destroy()
+                root_tr.withdraw()
                 root1.deiconify()
                 
             transaction_home_button = Button(root_tr,text = "Home",padx =50, pady = 25,bg = "#484848",fg = "white" ,command = tran_home)
             transaction_home_button.pack()
+
         Transaction_button = Button(root1,text = "Transaction",padx =50, pady = 25,bg = "#484848",fg = "white" ,command = transaction)
         Transaction_button.pack()
+
         L4 = Label(root1 , text = "       ",bg = "white")
         L4.pack()
 
@@ -216,7 +353,7 @@ def main():
             root.configure(bg = "white")
             pass
             def led_home():
-                root_led.destroy()
+                root_led.withdraw()
                 root1.deiconify()
 
             led_home_button = Button(root_led,text = "Home",padx =50, pady = 25,bg = "#484848",fg = "white" ,command = led_home)
@@ -233,7 +370,7 @@ def main():
             root_blc.configure(bg = "white")
             pass
             def mining_home():
-                root_blc.destroy()
+                root_blc.withdraw()
                 root1.deiconify()
 
             mining_home_button = Button(root_blc,text = "Home",padx =50, pady = 25,bg = "#484848",fg = "white" ,command = mining_home)
@@ -261,7 +398,7 @@ def main():
                 
             
             def con_home():
-                root_con.destroy()
+                root_con.withdraw()
                 root1.deiconify()
 
             convert_button = Button(root_con , text = "Convert",padx =25, pady = 15,bg = "#484848",fg = "white" ,command =convert)
@@ -303,28 +440,133 @@ def main():
             sign_up_label = Label(root,text = "platform to signup",bg = "white") #sign up (page 2)
             sign_up_label.pack()
             
-            def pg2_sup_to_pg1():
-                sign_up_access.destroy()
-                sign_up_label.destroy()
-                sign_up_back.destroy()
-                L8.destroy()
-                pg1()
-            
-            def pg2_up_pg3():
-                sign_up_label.destroy()
-                pg2_sup_to_pg1()
-                root.withdraw()
-                pg3()
+            #Generating userID
+            def userID_generator():
+                from random import randint , choice , shuffle
+                userID = []
+                ID = ""
+                noofuppercasechars = randint(3,5)
+                for i in range(noofuppercasechars):
+                    uppercasechar = randint(65,90)
+                    userID.append(chr(uppercasechar))
 
-            sign_up_access = Button(root,text ="Submit" , padx =50, pady = 25,bg = "#484848",fg = "white" , command= pg2_up_pg3)
-            sign_up_access.pack()
+                nooflowercasechars = randint(5,10)
+                for i in range(nooflowercasechars):
+                    lowercasechar = randint(97,122)
+                    userID.append(chr(lowercasechar))
 
-            L8 = Label(root , text = "       ",bg = "white")
-            L8.pack()
+                noofdigits = randint(5,10)
+                for i in range(noofdigits):
+                    digit = randint(0,100)
+                    userID.append(str(digit))
 
-            sign_up_back = Button(root,text="BACK" , padx =50, pady = 25,bg = "#484848",fg = "white" , command= pg2_sup_to_pg1)
-            sign_up_back.pack()
-            pass
+                x = ["!" , "@" , "#" , "$" , "%" , "^" , "&" , "*"]
+                noofspecialchars = randint(2,4)
+                for i in range(noofspecialchars):
+                    specialchar = choice(x)
+                    userID.append(specialchar)
+
+                shuffle(userID)
+                for i in userID:
+                    ID+=i
+                return ID
+
+            def signup_filling():
+                
+                #username
+                username_Label_signup = Label(root , text = "USERNAME" ,bg = "#484848" , fg = "white")
+                username_Label_signup.pack()
+                    
+                username_signup = Entry(root , bg = "#484848" , fg = "white")
+                username_signup.pack()
+
+                blankline1_signup = Label(root , text = "" , bg = "white" )
+                blankline1_signup.pack()
+
+                #password
+                password_Label_signup = Label(root , text = "PASSWORD" ,bg = "#484848" , fg = "white")
+                password_Label_signup.pack()
+                    
+                password_signup = Entry(root , bg = "#484848" , fg = "white")
+                password_signup.pack()
+
+                blankline2_signup = Label(root , text = "" , bg = "white" )
+                blankline2_signup.pack()
+
+                #account balance
+                balance_Label_signup = Label(root , text = "DEPOSIT" ,bg = "#484848" , fg = "white")
+                balance_Label_signup.pack()
+                    
+                balance_signup = Entry(root , bg = "#484848" , fg = "white")
+                balance_signup.pack()
+                    
+                blankline3_signup = Label(root , text = "" , bg = "white" )
+                blankline3_signup.pack()
+
+                    
+                def signupcheck():
+
+                    import mysql.connector
+                    mydb = mysql.connector.connect(host="localhost",user="root",passwd = "lmao",database = "CRYPTOCURRENCY")
+                    myobj = mydb.cursor()
+                    
+                    def pg2_up_pg3():
+                        sign_up_label.destroy()
+                        pg2_sup_to_pg1()
+                        root.withdraw()
+                        pg3()
+
+                    global l    
+                    myobj.execute("SELECT username from users")
+                    variable0 = myobj.fetchall()
+                    encryption = userID_generator()
+                    check1 = True
+                    for i in variable0:
+                        if i[0] == username_signup.get():
+                            check1 = False
+                    if check1 == True:
+                        l.append([encryption,username_signup.get(),password_signup.get(),balance_signup.get()])
+                        command = "INSERT INTO users VALUES(%s,%s,%s,%s)"
+                        myobj.executemany(command,l)
+                        mydb.commit()
+                        l = [(encryption(),username_signup.get(),password_signup.get(),balance_signup.get())]
+                        pg2_up_pg3()
+                        
+                    else:
+                        messagebox.showwarning("Oops!", "Username already exists")   
+                      
+                sign_up_access = Button(root,text ="Submit" , padx =50, pady = 25,bg = "#484848",fg = "white" , command= signupcheck)
+                sign_up_access.pack()
+
+                L8 = Label(root , text = "       ",bg = "white")
+                L8.pack()
+                    
+                            
+                def pg2_sup_to_pg1():
+                    balance_Label_signup.destroy()
+                    balance_signup.destroy()
+                    blankline3_signup.destroy()
+                    
+                    password_signup.destroy()
+                    password_Label_signup.destroy()
+                    blankline2_signup.destroy()
+                    
+                    blankline1_signup.destroy()
+                    username_Label_signup.destroy()
+                    username_signup.destroy()
+                    
+                    sign_up_access.destroy()
+                    sign_up_label.destroy()
+                    sign_up_back.destroy()
+                    L8.destroy()
+                    pg1()
+
+                
+                sign_up_back = Button(root,text="BACK" , padx =50, pady = 25,bg = "#484848",fg = "white" , command= pg2_sup_to_pg1)
+                sign_up_back.pack()
+                
+
+            signup_filling()
         #---------------------------------------------------------------------------------------------------------------
         def pg2_signin():
             Sign_up_button.destroy()
@@ -333,33 +575,99 @@ def main():
             sign_in_label = Label(root , text = "platform to sign in",bg = "white") #pg2
             sign_in_label.pack()
             
-            def pg2_sin_to_pg1():
-                sign_in_access.destroy()
-                sign_in_label.destroy()
-                sign_in_back.destroy()
-                L9.destroy()
-                pg1()
-            
-            def pg2_in_pg3():
-                sign_in_label.destroy()
-                pg2_sin_to_pg1()
-                root.withdraw()
-                pg3()
 
-            sign_in_access = Button(root,text ="Login" , padx =50, pady = 25,bg = "#484848",fg = "white" , command= pg2_in_pg3)
-            sign_in_access.pack()
+            def signin_filling():
+                
+                #username
+                username_Label_signin = Label(root , text = "USERNAME" ,bg = "#484848" , fg = "white")
+                username_Label_signin.pack()
+                    
+                username_signin = Entry(root , bg = "#484848" , fg = "white")
+                username_signin.pack()
 
-            L9 = Label(root , text = "       ",bg = "white")
-            L9.pack()
+                blankline4_signin = Label(root , text = "" , bg = "white" )
+                blankline4_signin.pack()
 
-            sign_in_back = Button(root,text="BACK" , padx =50, pady = 25,bg = "#484848",fg = "white" , command= pg2_sin_to_pg1 )
-            sign_in_back.pack()
-            pass
+                #password
+                password_Label_signin = Label(root , text = "PASSWORD" ,bg = "#484848" , fg = "white")
+                password_Label_signin.pack()
+                    
+                password_signin = Entry(root , bg = "#484848" , fg = "white")
+                password_signin.pack()
+
+                blankline5_signin = Label(root , text = "" , bg = "white" )
+                blankline5_signin.pack()
+
+                def signincheck():
+
+                    import mysql.connector
+                    mydb = mysql.connector.connect(host="localhost",user="root",passwd = "lmao",database = "CRYPTOCURRENCY")
+                    myobj = mydb.cursor()
+                    
+                    def pg2_in_pg3():
+                        sign_in_label.destroy()
+                        pg2_sin_to_pg1()
+                        root.withdraw()
+                        pg3()
+
+                    global l    
+                    myobj.execute("SELECT * from users")
+                    variable0 = myobj.fetchall()
+                    check1 = True
+                    for i in variable0:
+                        if i[1:3] == (username_signin.get(),password_signin.get()):
+                            check1 = False
+                            l.append(i)
+                            
+                    if check1 == False:
+                        pg2_in_pg3()
+                    else:
+                        messagebox.showerror("Failed to Sign In!", "Username or Password is incorrct")
+
+                sign_in_access = Button(root,text ="Login" , padx =50, pady = 25,bg = "#484848",fg = "white" , command= signincheck)
+                sign_in_access.pack()
+
+                L9 = Label(root , text = "       ",bg = "white")
+                L9.pack()
+
+                def pg2_sin_to_pg1():
+                    username_Label_signin.destroy()
+                    username_signin.destroy()
+                    blankline4_signin.destroy()
+
+                    password_Label_signin.destroy()
+                    password_signin.destroy()
+                    blankline5_signin.destroy()
+
+                    sign_in_access.destroy()
+                    sign_in_label.destroy()
+                    sign_in_back.destroy()
+                    L9.destroy()
+                    pg1()
+
+                sign_in_back = Button(root,text="BACK" , padx =50, pady = 25,bg = "#484848",fg = "white" , command= pg2_sin_to_pg1 )
+                sign_in_back.pack()
+
+            signin_filling()    
 
         def exit_out():
             root.destroy()
     #--------------------------------------------------------------------------------------------------------------------------------
+        #Creating table alone
+            
+        import mysql.connector
+        mydb = mysql.connector.connect(host="localhost",user="root",passwd = "lmao",database = "CRYPTOCURRENCY")
+        myobj = mydb.cursor()
+        myobj.execute("SHOW TABLES")
+        check0 = False
+        for i in myobj:
+            if i == ('users',):
+                check0 = True
+                break
+        if check0 == False:
+            myobj.execute("CREATE TABLE USERS(userid varchar(50) Primary key ,username varchar(20) Unique,password varchar(30),balance integer(50))")
 
+        
         Sign_up_button = Button(root ,text ="Sign Up" ,padx =50, pady = 25,bg = "#484848",fg = "white" ,command= pg2_signup)#sign up (page 1)
         Sign_up_button.pack()
 
@@ -378,6 +686,8 @@ def main():
 
     pg1()
 
+l = []
+
 root_splash_screen.after(3000, main)
 
-mainloop() 
+mainloop()
