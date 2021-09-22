@@ -117,7 +117,7 @@ def main():
                         
                         
                     else:
-                        messageboxd.showerror("Oops!", "Enter the username correctly")
+                        messagebox.showerror("Oops!", "Enter the username correctly")
                         
                 checknamed = Button(root_usernamed ,text = "Change",bg = "#CF780A" , fg = "#202020",command = checkingd)
                 checknamed.pack()
@@ -152,7 +152,7 @@ def main():
                 change_password2_labeld = Label(root_passwordd , text = "Re-enter the new password")
                 change_password2_labeld.pack()
                 
-                change_password2d = Entry(root_password,bg = "#CF780A" , fg = "#202020")
+                change_password2d = Entry(root_passwordd,bg = "#CF780A" , fg = "#202020")
                 change_password2d.pack()
 
                 def checking_passwordd():
@@ -170,7 +170,7 @@ def main():
                     else:
                         messagebox.showerror("Oops!", "Enter the password correctly")
                         
-                checkpasswordd = Button(root_passwordd ,bg = "#CF780A" , fg = "#202020",command = checking_passwordd)
+                checkpasswordd = Button(root_passwordd ,text = "Change" ,bg = "#CF780A" , fg = "#202020",command = checking_passwordd)
                 checkpasswordd.pack()
 
                 def passhomed():
@@ -180,7 +180,7 @@ def main():
                 Lpass2d = Label(root_passwordd , text = "       ",bg = "#202020")
                 Lpass2d.pack()
                 
-                passhomedd = Button(root_passwordd ,padx =50, pady = 25,bg = "#CF780A",fg = "#202020" ,command = passhomed)
+                passhomedd = Button(root_passwordd ,text = "Back" , padx =50, pady = 25,bg = "#CF780A",fg = "#202020" ,command = passhomed)
                 passhomedd.pack()
                 
             change_password_buttond = Button(root_vpd,text = "Change password" ,padx =50, pady = 25,bg = "#CF780A",fg = "#202020" ,command = change_passwordd)
@@ -203,11 +203,11 @@ def main():
             root_trd.configure(bg = "#202020")
             pass
 
-             def tran_depositd():
+            def tran_depositd():
                 root_trd.withdraw()
                 root_depositd = Tk()
                 root_depositd.geometry("1920x1080")
-                root_depositd.configure(bg = "2020")
+                root_depositd.configure(bg = "#202020")
 
                 depol1d = Label(root_depositd , text = "Enter the amount to be deposited")
                 depol1d.pack()
@@ -231,7 +231,7 @@ def main():
                     mydb.commit()
                     l[3] += int(depoentry1d.get()) 
 
-                    depol2d = Labeld(root_depositd , text= "Deposited successfully")
+                    depol2d = Label(root_depositd , text= "Deposited successfully")
                     depol2d.pack()
 
                 def depohomed():
@@ -244,8 +244,8 @@ def main():
                 Ltran2d = Label(root_depositd , text = "       ",bg = "#202020")
                 Ltran2d.pack()
                 
-                depohomed = Button(root_depositd ,text = "Home",padx =50, pady = 25,bg = "#CF780A",fg = "#202020" ,command = depohomed)
-                depohomed.pack()
+                dephomed = Button(root_depositd ,text = "Home",padx =50, pady = 25,bg = "#CF780A",fg = "#202020" ,command = depohomed)
+                dephomed.pack()
 
             def tran_payd():
                 root_trd.withdraw()
@@ -301,11 +301,11 @@ def main():
 
                     global l
 
-                    if find_userd(payentry2.get()) == True:
+                    if find_userd(payentry2d.get()) == True:
                         xd = l[3] - int(payentry1d.get())
-                        l1d = [x,l[0]]
+                        l1d = [xd,l[0]]
                         command1d = "UPDATE users SET balance = %s WHERE userid =%s"
-                        myobj.execute(command1,l1)
+                        myobj.execute(command1d,l1d)
                         mydb.commit()
 
                         myobj.execute("SELECT username , balance from users")
@@ -313,16 +313,16 @@ def main():
                         yd = myobj.fetchall()
                             
                         for i in yd:
-                            if i[0] == payentry2.get() :
-                                xd = i[1] + int(payentry1.get())
+                            if i[0] == payentry2d.get() :
+                                xd = i[1] + int(payentry1d.get())
                             
                             
-                        l2d = [x, payentry2.get()]  
+                        l2d = [xd, payentry2d.get()]  
 
                         commandd = "UPDATE users \
                                     SET balance = %s \
                                     WHERE username =%s"
-                        myobj.execute(commandd,l2)
+                        myobj.execute(commandd,l2d)
                         mydb.commit()
                         ledgerd(l[1],payentry1d.get(),payentry2d.get())
 
@@ -339,17 +339,29 @@ def main():
                 paybuttond = Button(root_payd ,text = "Pay",padx =50, pady = 25,bg = "#CF780A",fg = "#202020" ,command = payingd)
                 paybuttond.pack()
 
-                Lpay2d = Label(root_payd , text = "       ",bg = "white")
+                Lpay2d = Label(root_payd , text = "       ",bg = "#202020")
                 Lpay2d.pack()
                 
-                payhomed = Button(root_pay ,text = "Back",padx =50, pady = 25,bg = "#CF780A",fg = "#202020" ,command = payhomed)
-                payhomed.pack()
+                payhomd = Button(root_payd ,text = "Back",padx =50, pady = 25,bg = "#CF780A",fg = "#202020" ,command = payhomed)
+                payhomd.pack()
             
 
             def tran_homed():
                 root_trd.withdraw()
                 root1d.deiconify()
-                
+
+            transaction_deposit_button = Button(root_trd,text="Deposit", padx =50, pady = 25,bg = "#CF780A",fg = "#202020" ,command = tran_depositd)
+            transaction_deposit_button.pack()
+
+            transaction_label1 = Label(root_trd,text = "           " , bg = "#202020")
+            transaction_label1.pack()
+            
+            transaction_pay_button = Button(root_trd,text="Deposit", padx =50, pady = 25,bg = "#CF780A",fg = "#202020" ,command = tran_payd)
+            transaction_pay_button.pack()
+
+            transaction_label2 = Label(root_trd,text = "           " , bg = "#202020")
+            transaction_label2.pack()
+
             transaction_home_buttond = Button(root_trd,text = "Home",padx =50, pady = 25,bg = "#CF780A",fg = "#202020" ,command = tran_homed)
             transaction_home_buttond.pack()
 
@@ -411,7 +423,8 @@ def main():
                 x = int(conversion_entryd.get())//10
                 conversion_labeld = Label(root_cond ,text = x)
                 conversion_labeld.pack()
-                convert_labeld.insert(0,"Enter the amount in rupees",fg="white")
+                conversion_labeld.insert(0,"Enter the amount in rupees",fg="white")
+                conversion_labeld.pack()
 
             convert_buttond = Button(root_cond , text = "Convert",padx =25, pady = 15,bg = "#CF780A",fg = "#202020" ,command =convertd)
             convert_buttond.pack()
@@ -604,17 +617,17 @@ def main():
                     else:
                         messagebox.showerror("Oops!", "Enter the password correctly")
                         
-                checkpassword = Button(root_password ,bg = "#484848" , fg = "white",command = checking_password)
+                checkpassword = Button(root_password , text = "Change",bg = "#484848" , fg = "white",command = checking_password)
                 checkpassword.pack()
 
-                def userhome():
+                def passhome():
                     root_password.withdraw()
                     root_vp.deiconify()
 
                 Lpass2 = Label(root_password , text = "       ",bg = "white")
                 Lpass2.pack()
                 
-                passhome = Button(root_password ,padx =50, pady = 25,bg = "#484848",fg = "white" ,command = passhome)
+                passhome = Button(root_password ,text = "Back", padx =50, pady = 25,bg = "#484848",fg = "white" ,command = passhome)
                 passhome.pack()
                 
             change_password_button = Button(root_vp,text = "Change password" ,padx =50, pady = 25,bg = "#484848",fg = "white" ,command = change_password)
@@ -772,8 +785,8 @@ def main():
                         payentry2.destroy()
                         Lpay4.destroy()
 
-                        payl2 = Label(root_pay , text= "Deposited successfully")
-                        payl2.pack()
+                        payl5 = Label(root_pay , text= "Deposited successfully")
+                        payl5.pack()
 
 
                     else:
