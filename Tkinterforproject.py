@@ -212,28 +212,28 @@ def main():
                 root1.deiconify()
 
             global l    
-            profile_username = Label(root_vp , text = l[0][1] , bg = "#484848",fg = "white")
+            profile_username = Label(root_vp , text = l[1] , bg = "#484848",fg = "white")
             profile_username.pack()
 
-            pl1 = Label(root_vp , text = "                " , bg = "#484848",fg = "#484848")
+            pl1 = Label(root_vp , text = "                " , bg = "white")
             pl1.pack()
             
-            profile_password = Label(root_vp , text = l[0][2] , bg = "#484848",fg = "white")
+            profile_password = Label(root_vp , text = l[2] , bg = "#484848",fg = "white")
             profile_password.pack()
 
-            pl2 = Label(root_vp , text = "                " , bg = "#484848",fg = "#484848")
+            pl2 = Label(root_vp , text = "                " , bg = "white")
             pl2.pack()
 
-            profile_balance = Label(root_vp , text = l[0][3] , bg = "#484848",fg = "white")
+            profile_balance = Label(root_vp , text = l[3] , bg = "#484848",fg = "white")
             profile_balance.pack()
 
-            pl3 = Label(root_vp , text = "                " , bg = "#484848",fg = "#484848")
+            pl3 = Label(root_vp , text = "                " , bg = "white")
             pl3.pack()
 
-            profile_encrypted = Label(root_vp , text = l[0][0] , bg = "#484848",fg = "white")
+            profile_encrypted = Label(root_vp , text = l[0] , bg = "#484848",fg = "white")
             profile_encrypted.pack()
 
-            pl4 = Label(root_vp , text = "                " , bg = "#484848",fg = "#484848")
+            pl4 = Label(root_vp , text = "                " , bg = "white")
             pl4.pack()
 
             def change_username():
@@ -244,13 +244,13 @@ def main():
                 root_username.configure(bg = "white")
                 
                 change_username1_label = Label(root_username , text = "Enter the new username")
-                change_username1.pack()
+                change_username1_label.pack()
                 
                 change_username1 = Entry(root_username,bg = "#484848" , fg = "white")
                 change_username1.pack()
 
                 change_username2_label = Label(root_username , text = "Re-enter the new username")
-                change_username2.pack()
+                change_username2_label.pack()
                 
                 change_username2 = Entry(root_username,bg = "#484848" , fg = "white")
                 change_username2.pack()
@@ -262,25 +262,35 @@ def main():
                         myobj = mydb.cursor()
 
                         global l   
-                        list1 = [username1.get() , l[0][0]]
+                        list1 = [change_username1.get() , l[0]]
                         command = "UPDATE users SET username = %s WHERE userid = %s"
                         myobj.execute(command,list1)
                         mydb.commit()
-                        l[0][1] = username1.get()
+                        l[1] = change_username1.get()
+
+                        change_username1_label.destroy()
+                        change_username1.destroy()
+
+                        change_username2_label.destroy()
+                        change_username2.destroy()
+
+                        checkname.destroy()
+                        
+                        
                     else:
                         messagebox.showerror("Oops!", "Enter the username correctly")
                         
-                checkname = Button(root_username ,bg = "#484848" , fg = "white",command = checking)
+                checkname = Button(root_username ,text = "Change",bg = "#484848" , fg = "white",command = checking)
                 checkname.pack()
 
                 def userhome():
                     root_username.withdraw()
                     root_vp.deiconify()
 
-                Luser2 = Label(root1 , text = "       ",bg = "white")
+                Luser2 = Label(root_username , text = "       ",bg = "white")
                 Luser2.pack()
                 
-                userhome = Button(root_username ,padx =50, pady = 25,bg = "#484848",fg = "white" ,command = userhome)
+                userhome = Button(root_username ,text="Home",padx =50, pady = 25,bg = "#484848",fg = "white" ,command = userhome)
                 userhome.pack()
 
                 
@@ -295,13 +305,13 @@ def main():
                 root_password.configure(bg = "white")
                 
                 change_password1_label = Label(root_password , text = "Enter the new password")
-                change_password1.pack()
+                change_password1_label.pack()
                 
                 change_password1 = Entry(root_password,bg = "#484848" , fg = "white")
                 change_password1.pack()
 
                 change_password2_label = Label(root_password , text = "Re-enter the new password")
-                change_password2.pack()
+                change_password2_label.pack()
                 
                 change_password2 = Entry(root_password,bg = "#484848" , fg = "white")
                 change_password2.pack()
@@ -313,11 +323,11 @@ def main():
                         myobj = mydb.cursor()
 
                         global l   
-                        list2 = [password.get() , l[0][0]]
+                        list2 = [change_password1.get() , l[0]]
                         command = "UPDATE users SET password= %s WHERE userid = %s"
                         myobj.execute(command,list2)
                         mydb.commit()
-                        l[0][2] = password.get()
+                        l[2] = change_password1.get()
                     else:
                         messagebox.showerror("Oops!", "Enter the password correctly")
                         
@@ -368,33 +378,33 @@ def main():
                 Ltran3 = Label(root_deposit , text = "       ",bg = "white")
                 Ltran3.pack()
                 
-                def despositing():
+                def depositing():
                     import mysql.connector
                     mydb = mysql.connector.connect(host="localhost",user="root",passwd = "lmao",database = "CRYPTOCURRENCY")
                     myobj = mydb.cursor()
 
                     global l
 
-                    list1 = [int(depoentry1.get()) + l[0][3] , l[0][0]]
+                    list1 = [int(depoentry1.get()) + l[3] , l[0]]
                     command = "UPDATE users SET balance = %s WHERE userid = %s"
                     myobj.execute(command,list1)
                     mydb.commit()
-                    l[0][3] += int(depoentry1.get()) 
+                    l[3] += int(depoentry1.get()) 
 
                     depol2 = Label(root_deposit , text= "Deposited successfully")
-                    depol.pack()
+                    depol2.pack()
 
                 def depohome():
                     root_deposit.withdraw()
                     root_tr.deiconify()
                     
-                depobutton = Button(root_deposit ,padx =50, pady = 25,bg = "#484848",fg = "white" ,command = depositing)
+                depobutton = Button(root_deposit ,text = "Invest",padx =50, pady = 25,bg = "#484848",fg = "white" ,command = depositing)
                 depobutton.pack()
 
                 Ltran2 = Label(root_deposit , text = "       ",bg = "white")
                 Ltran2.pack()
                 
-                depohome = Button(root_deposit ,padx =50, pady = 25,bg = "#484848",fg = "white" ,command = depohome)
+                depohome = Button(root_deposit ,text = "Home",padx =50, pady = 25,bg = "#484848",fg = "white" ,command = depohome)
                 depohome.pack()
 
             def tran_pay():
@@ -451,9 +461,9 @@ def main():
 
                     global l
 
-                    if find_user(payl2.get()) == True:
-                        x = l[0][3] - int(payl1.get())
-                        l1 = [x,l[0][0]]
+                    if find_user(payentry2.get()) == True:
+                        x = l[3] - int(payentry1.get())
+                        l1 = [x,l[0]]
                         command1 = "UPDATE users SET balance = %s WHERE userid =%s"
                         myobj.execute(command1,l1)
                         mydb.commit()
@@ -463,18 +473,22 @@ def main():
                         y = myobj.fetchall()
                             
                         for i in y:
-                            if i[0] == payl2.get() :
-                                x = i[1] + int(payl1.get())
+                            if i[0] == payentry2.get() :
+                                x = i[1] + int(payentry1.get())
                             
                             
-                        l2 = [x, payl2.get()]  
+                        l2 = [x, payentry2.get()]  
 
                         command = "UPDATE users \
                                     SET balance = %s \
                                     WHERE username =%s"
                         myobj.execute(command,l2)
                         mydb.commit()
-                        ledger(l[0][1],payl2.get(),payl1.get())
+                        ledger(l[1],payentry1.get(),payentry2.get())
+
+                        payl2 = Label(root_pay , text= "Deposited successfully")
+                        payl2.pack()
+
                     else:
                         messagebox.showerror("Oops!", "User doesn't exist")
                 
@@ -482,13 +496,13 @@ def main():
                     root_pay.withdraw()
                     root_tr.deiconify()
                     
-                paybutton = Button(root_pay ,padx =50, pady = 25,bg = "#484848",fg = "white" ,command = paying)
+                paybutton = Button(root_pay ,text = "Pay",padx =50, pady = 25,bg = "#484848",fg = "white" ,command = paying)
                 paybutton.pack()
 
                 Lpay2 = Label(root_pay , text = "       ",bg = "white")
                 Lpay2.pack()
                 
-                payhome = Button(root_pay ,padx =50, pady = 25,bg = "#484848",fg = "white" ,command = payhome)
+                payhome = Button(root_pay ,text = "Back",padx =50, pady = 25,bg = "#484848",fg = "white" ,command = payhome)
                 payhome.pack()
                         
                 
@@ -701,7 +715,7 @@ def main():
                         command = "INSERT INTO users VALUES(%s,%s,%s,%s)"
                         myobj.executemany(command,l)
                         mydb.commit()
-                        l = [(encryption(),username_signup.get(),password_signup.get(),balance_signup.get())]
+                        l = [encryption(),username_signup.get(),password_signup.get(),balance_signup.get()]
                         pg2_up_pg3()
                         
                     else:
@@ -790,7 +804,7 @@ def main():
                         if i[1:3] == (username_signin.get(),password_signin.get()):
                             check1 = False
                             l.append(i)
-                            
+                            l = list(l[0])
                     if check1 == False:
                         pg2_in_pg3()
                     else:
@@ -863,3 +877,4 @@ l = []
 root_splash_screen.after(3000, main)
 
 mainloop()
+
