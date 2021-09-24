@@ -293,6 +293,7 @@ def main():
                     
                     with open("PUBLIC_LEDGER.txt") as f:
                         return [i for i in (f.read()).split("\n")]
+                    
 
                 def payingd():
                     import mysql.connector
@@ -376,7 +377,12 @@ def main():
             root_ledd = Tk()
             root_ledd.geometry("1920x1080")
             root_ledd.configure(bg = "#202020")
-            pass
+
+            with open("PUBLIC_LEDGER.txt") as f:
+                for i in (f.readd()).split("\n"):
+                    Label(root_ledd , text = i , fg = "#202020" , bg = "#CF780A").pack()
+                    Label(root_ledd,text = "").pack()
+
             def led_homed():
                 root_ledd.withdraw()
                 root1d.deiconify()
@@ -388,12 +394,46 @@ def main():
         L5d = Label(root1d , text = "       ",bg = "#202020")
         L5d.pack()
 
+        def RCGENERATOR(xd):
+            xd = xd.lower()
+            rcd = ""
+            for i in xd:
+                if i.isalpha() == True:
+                    rcd += str(ord(i) - 80)
+                    
+                elif i.isnumeric() == True:
+                    rcd += str(int(i) + 50)
+            print(list(rcd))
+            return f"{int(rc):o}"
+
         def blockchaind():
             root1d.withdraw()
             root_blcd = Tk()
             root_blcd.geometry("1920x1080")
             root_blcd.configure(bg = "#202020")
-            pass
+
+                
+            xd = []
+            with open("PUBLIC_LEDGER.txt") as f:
+                for i in (f.readd()).split("\n"):
+                    print(i)
+                    xd.append(i)
+                    
+            megablockd = {}
+            fristtransd = True
+
+            for i in range(len(xd)):
+                if fristtransd == True:
+                    rcd = RCGENERATORd(xd[i])
+                    megablockd[rcd] = ["BEGINNING",xd[i]]
+                    prevrcd = rcd
+                    fristtransd = False
+                else:
+                    rcd = RCGENERATORd(xd[i])
+                    megablockd[str(int(prevrcd) + int(rcd))] = [prevrcd,xd[i]]
+                    prevrcd = str(int(prevrcd) + int(rcd)) 
+            Label(root_blcd , text= megablock).pack()
+
             def mining_homed():
                 root_blcd.withdraw()
                 root1d.deiconify()
