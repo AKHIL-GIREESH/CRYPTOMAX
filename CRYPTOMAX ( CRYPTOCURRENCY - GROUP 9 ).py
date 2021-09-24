@@ -20,9 +20,22 @@ def main():
 
     upperline1 = Label(root,text = "",bg = "#E00000",padx = 1920 , pady = 60)
     upperline1.pack()
+    
     heading=Label(root,text="CRYPTOMAX",bg = "white")
-    heading.config(font=("Courier",50))
+    heading.config(font=("Copperplate",50))
     heading.pack()
+
+    l1 = Label(root, text = ''' 
+                                
+                            
+                            
+                            
+                             
+                            ''' , bg = "white")
+    l1.pack()
+
+    lowerline1 = Label(root,text="", bg = "#004b8f",padx = 1920 , pady = 60)
+    lowerline1.pack(side = BOTTOM)
 
 
     #DARK THEME
@@ -119,7 +132,8 @@ def main():
                     else:
                         messagebox.showerror("Oops!", "Enter the username correctly")
                         
-                checknamed = Button(root_usernamed ,text = "Change",bg = "#CF780A" , fg = "#202020",command = checkingd)
+                checknamed = Button(root_usernamed ,text = "Change",width = 15 , height = 3,bg = "#CF780A" , fg = "#202020",command = checkingd)
+                checknamed.config(font=("copperplate",15))
                 checknamed.pack()
 
                 def userhomed():
@@ -129,11 +143,13 @@ def main():
                 Luser2d = Label(root_usernamed , text = "       ",bg = "#202020")
                 Luser2d.pack()
                 
-                userhomed = Button(root_usernamed ,text="Home",padx =50, pady = 25,bg = "#CF780A",fg = "#202020" ,command = userhomed)
-                userhomed.pack()
+                user_homed = Button(root_usernamed ,text="Home",width = 15 , height = 3,bg = "#CF780A",fg = "#202020" ,command = userhomed)
+                user_homed.config(font=("copperplate",15))
+                user_homed.pack()
 
                 
-            change_username_buttond = Button(root_vpd,text = "Change Username" ,padx =50, pady = 25,bg = "#CF780A",fg = "#202020" ,command = change_usernamed)
+            change_username_buttond = Button(root_vpd,text = "Change Username" ,width = 15 , height = 3,bg = "#CF780A",fg = "#202020" ,command = change_usernamed)
+            change_username_buttond.config(font=("copperplate",15))
             change_username_buttond.pack()
             
             def change_passwordd():
@@ -170,7 +186,8 @@ def main():
                     else:
                         messagebox.showerror("Oops!", "Enter the password correctly")
                         
-                checkpasswordd = Button(root_passwordd ,text = "Change" ,bg = "#CF780A" , fg = "#202020",command = checking_passwordd)
+                checkpasswordd = Button(root_passwordd ,text = "Change" ,width = 15 , height = 3,bg = "#CF780A" , fg = "#202020",command = checking_passwordd)
+                checkpasswordd.config(font=("copperplate",15))
                 checkpasswordd.pack()
 
                 def passhomed():
@@ -180,17 +197,21 @@ def main():
                 Lpass2d = Label(root_passwordd , text = "       ",bg = "#202020")
                 Lpass2d.pack()
                 
-                passhomedd = Button(root_passwordd ,text = "Back" , padx =50, pady = 25,bg = "#CF780A",fg = "#202020" ,command = passhomed)
+                passhomedd = Button(root_passwordd ,text = "Back" ,width = 15 , height = 3,bg = "#CF780A",fg = "#202020" ,command = passhomed)
+                passhomedd.config(font=("copperplate", 15))
                 passhomedd.pack()
                 
-            change_password_buttond = Button(root_vpd,text = "Change password" ,padx =50, pady = 25,bg = "#CF780A",fg = "#202020" ,command = change_passwordd)
+            change_password_buttond = Button(root_vpd,text = "Change password" ,width = 15 , height = 3,bg = "#CF780A",fg = "#202020" ,command = change_passwordd)
+            change_password_buttond.config(font=("copperplate",15))
             change_password_buttond.pack()
                     
-            profile_home_buttondd = Button(root_vpd,text = "Home",padx =50, pady = 25,bg = "#CF780A",fg = "#202020" ,command = pro_homed)
+            profile_home_buttondd = Button(root_vpd,text = "Home",width = 15 , height = 3,bg = "#CF780A",fg = "#202020" ,command = pro_homed)
+            profile_home_buttondd.config(font=("copperplate",15))
             profile_home_buttondd.pack()
         
 
-        Profile_buttond = Button(root1d,text = "Profile",padx =50, pady = 25,bg = "#CF780A",fg = "#202020" ,command = viewprofiled)
+        Profile_buttond = Button(root1d,text = "Profile",width = 15 , height = 3,bg = "#CF780A",fg = "#202020" ,command = viewprofiled)
+        Profile_buttond.config(font=("copperplate",15))
         Profile_buttond.pack()
 
         L3d = Label(root1d, text = "       ",bg = "#202020")
@@ -238,13 +259,15 @@ def main():
                     root_depositd.withdraw()
                     root_trd.deiconify()
                     
-                depobuttond = Button(root_depositd ,text = "Invest",padx =50, pady = 25,bg = "#CF780A",fg = "#202020" ,command = depositingd)
+                depobuttond = Button(root_depositd ,text = "Invest",width = 15,height = 3,bg = "#CF780A",fg = "#202020" ,command = depositingd)
+                depobuttond.config(font=("copperplate",15))
                 depobuttond.pack()
 
                 Ltran2d = Label(root_depositd , text = "       ",bg = "#202020")
                 Ltran2d.pack()
                 
-                dephomed = Button(root_depositd ,text = "Home",padx =50, pady = 25,bg = "#CF780A",fg = "#202020" ,command = depohomed)
+                dephomed = Button(root_depositd ,text = "Home",width = 15, height = 3,bg = "#CF780A",fg = "#202020" ,command = depohomed)
+                dephomed.config(font=("copperplate",15))
                 dephomed.pack()
 
             def tran_payd():
@@ -289,11 +312,10 @@ def main():
                     list3d = [x+str(y)+z]
                     with open("PUBLIC_LEDGER.txt","a") as f:
                         for i in list3d:
-                            f.write(i+"\n")
+                            f.write(i+"\n") 
                     
                     with open("PUBLIC_LEDGER.txt") as f:
                         return [i for i in (f.read()).split("\n")]
-                    
 
                 def payingd():
                     import mysql.connector
@@ -337,13 +359,15 @@ def main():
                     root_payd.withdraw()
                     root_trd.deiconify()
                     
-                paybuttond = Button(root_payd ,text = "Pay",padx =50, pady = 25,bg = "#CF780A",fg = "#202020" ,command = payingd)
+                paybuttond = Button(root_payd ,text = "Pay",height = 3 , width = 15 ,bg = "#CF780A",fg = "#202020" ,command = payingd)
+                paybuttond.config(font=("copperplate",15))
                 paybuttond.pack()
 
                 Lpay2d = Label(root_payd , text = "       ",bg = "#202020")
                 Lpay2d.pack()
                 
-                payhomd = Button(root_payd ,text = "Back",padx =50, pady = 25,bg = "#CF780A",fg = "#202020" ,command = payhomed)
+                payhomd = Button(root_payd ,text = "Back",height = 3 , width = 15 ,bg = "#CF780A",fg = "#202020" ,command = payhomed)
+                payhomd.config(font=("copperplate",15))
                 payhomd.pack()
             
 
@@ -351,22 +375,26 @@ def main():
                 root_trd.withdraw()
                 root1d.deiconify()
 
-            transaction_deposit_button = Button(root_trd,text="Deposit", padx =50, pady = 25,bg = "#CF780A",fg = "#202020" ,command = tran_depositd)
+            transaction_deposit_button = Button(root_trd,text="Deposit", height = 3, width =15,bg = "#CF780A",fg = "#202020" ,command = tran_depositd)
+            transaction_deposit_button.config(font=("copperplate",15))
             transaction_deposit_button.pack()
 
             transaction_label1 = Label(root_trd,text = "           " , bg = "#202020")
             transaction_label1.pack()
             
-            transaction_pay_button = Button(root_trd,text="Deposit", padx =50, pady = 25,bg = "#CF780A",fg = "#202020" ,command = tran_payd)
+            transaction_pay_button = Button(root_trd,text="Deposit",height = 3, width = 15,bg = "#CF780A",fg = "#202020" ,command = tran_payd)
+            transaction_pay_button.config(font=("copperplate",15))
             transaction_pay_button.pack()
 
             transaction_label2 = Label(root_trd,text = "           " , bg = "#202020")
             transaction_label2.pack()
 
-            transaction_home_buttond = Button(root_trd,text = "Home",padx =50, pady = 25,bg = "#CF780A",fg = "#202020" ,command = tran_homed)
+            transaction_home_buttond = Button(root_trd,text = "Home",height = 3, width = 15, bg = "#CF780A",fg = "#202020" ,command = tran_homed)
+            transaction_home_buttond.config(font=("copperplate",15))
             transaction_home_buttond.pack()
 
-        Transaction_buttond = Button(root1d,text = "Transaction",padx =50, pady = 25,bg = "#CF780A",fg = "#202020" ,command = transactiond)
+        Transaction_buttond = Button(root1d,text = "Transaction",height = 3 , width = 15 ,bg = "#CF780A",fg = "#202020" ,command = transactiond)
+        Transaction_buttond.config(font=("copperplate",15))
         Transaction_buttond.pack()
 
         L4d = Label(root1d , text = "       ",bg = "#202020")
@@ -377,7 +405,7 @@ def main():
             root_ledd = Tk()
             root_ledd.geometry("1920x1080")
             root_ledd.configure(bg = "#202020")
-
+            
             with open("PUBLIC_LEDGER.txt") as f:
                 for i in (f.readd()).split("\n"):
                     Label(root_ledd , text = i , fg = "#202020" , bg = "#CF780A").pack()
@@ -387,14 +415,18 @@ def main():
                 root_ledd.withdraw()
                 root1d.deiconify()
 
-            led_home_buttond = Button(root_ledd,text = "Home",padx =50, pady = 25,bg = "#CF780A",fg = "#202020" ,command = led_homed)
+            led_home_buttond = Button(root_ledd,text = "Home",height = 3,width = 15 ,bg = "#CF780A",fg = "#202020" ,command = led_homed)
+            led_home_buttond.config(font=("copperplate",15))
             led_home_buttond.pack()
-        Ledger_buttond = Button(root1d,text = "Public Ledger" ,padx =50, pady = 25,bg = "#CF780A",fg = "#202020" , command = ledgerd)
+        
+        Ledger_buttond = Button(root1d,text = "Public Ledger" ,height = 3 , width = 15,bg = "#CF780A",fg = "#202020" , command = ledgerd)
+        Ledger_buttond.config(font=("copperplate",15))
         Ledger_buttond.pack()
+        
         L5d = Label(root1d , text = "       ",bg = "#202020")
         L5d.pack()
 
-        def RCGENERATOR(xd):
+        def RCGENERATORd(xd):
             xd = xd.lower()
             rcd = ""
             for i in xd:
@@ -411,8 +443,7 @@ def main():
             root_blcd = Tk()
             root_blcd.geometry("1920x1080")
             root_blcd.configure(bg = "#202020")
-
-                
+            
             xd = []
             with open("PUBLIC_LEDGER.txt") as f:
                 for i in (f.readd()).split("\n"):
@@ -432,16 +463,21 @@ def main():
                     rcd = RCGENERATORd(xd[i])
                     megablockd[str(int(prevrcd) + int(rcd))] = [prevrcd,xd[i]]
                     prevrcd = str(int(prevrcd) + int(rcd)) 
-            Label(root_blcd , text= megablock).pack()
-
+            
+            Label(root_blcd , text= megablockd).pack()
+            
             def mining_homed():
                 root_blcd.withdraw()
                 root1d.deiconify()
 
-            mining_home_buttond = Button(root_blcd,text = "Home",padx =50, pady = 25,bg = "#CF780A",fg = "#202020" ,command = mining_homed)
+            mining_home_buttond = Button(root_blcd,text = "Home",height = 3, width = 15,bg = "#CF780A",fg = "#202020" ,command = mining_homed)
+            mining_home_buttond.config(font=("copperplate",15))
             mining_home_buttond.pack()
-        Blockchain_buttond = Button(root1d,text = "Mining",padx =50, pady = 25,bg = "#CF780A",fg = "#202020" ,command = blockchaind)
+        
+        Blockchain_buttond = Button(root1d,text = "Mining",height = 3, width = 15,bg = "#CF780A",fg = "#202020" ,command = blockchaind)
+        Blockchain_buttond.config(font=("copperplate",15))
         Blockchain_buttond.pack()
+        
         L6d = Label(root1d , text = "       ",bg = "#202020")
         L6d.pack()
 
@@ -461,22 +497,29 @@ def main():
             def convertd():
                 convert_buttond.destroy()
                 x = int(conversion_entryd.get())//10
+                
                 conversion_labeld = Label(root_cond ,text = x)
                 conversion_labeld.pack()
+                
                 conversion_labeld.insert(0,"Enter the amount in rupees",fg="white")
                 conversion_labeld.pack()
 
-            convert_buttond = Button(root_cond , text = "Convert",padx =25, pady = 15,bg = "#CF780A",fg = "#202020" ,command =convertd)
+            convert_buttond = Button(root_cond , text = "Convert",height = 3 , width = 15,bg = "#CF780A",fg = "#202020" ,command =convertd)
+            convert_buttond.config(font=("copperplate",15))
             convert_buttond.pack()
             
 
             L13d = Label(root_cond, text = "       ",bg = "#202020")
             L13d.pack()
 
-            con_home_buttond = Button(root_cond,text = "Home",padx =50, pady = 25,bg = "#CF780A",fg = "#202020" ,command = con_homed)
+            con_home_buttond = Button(root_cond,text = "Home",height = 3, width = 15,bg = "#CF780A",fg = "#202020" ,command = con_homed)
+            con_home_buttond.config(font=("copperplate",15))
             con_home_buttond.pack(side = BOTTOM)
-        Conversion_buttond = Button(root1d,text = "Conversion",padx =50, pady = 25,bg = "#CF780A",fg = "#202020" ,command = conversiond)
+        
+        Conversion_buttond = Button(root1d,text = "Conversion",height=3, width = 15,bg = "#CF780A",fg = "#202020" ,command = conversiond)
+        Conversion_buttond.config(font=("copperplate",15))
         Conversion_buttond.pack()
+        
         L7d = Label(root1d , text = "       ",bg = "#202020")
         L7d.pack()
 
@@ -493,7 +536,8 @@ def main():
             root1d.destroy()
             root.deiconify()
             
-        Home_backd = Button(root1d,text="HOME" , padx =50, pady = 25,bg = "#CF780A",fg = "#202020" , command=Back_to_homed)
+        Home_backd = Button(root1d,text="HOME" , padx =50,height =3 , width = 15,bg = "#CF780A",fg = "#202020" , command=Back_to_homed)
+        Home_backd.config(font=("copperplate",15))
         Home_backd.pack()
 
     #--------------------------------------------------------------------------------------------------------------------------------------
@@ -505,8 +549,15 @@ def main():
         root1.geometry("1920x1080")
         root1.configure(bg = "white")
 
-        upperline2 = Label(root1,text = "",bg = "#E00000",padx = 1920 , pady = 60)
-        upperline2.pack()
+        upperline1 = Label(root1,text = "",bg = "#E00000",padx = 1920 , pady = 60)
+        upperline1.pack()
+        
+        global l
+
+        heading=Label(root1,text="WELCOME "+ l[1],bg = "white" ,fg = "#484848")
+        heading.config(font=("Sans-serif",50))
+        heading.pack()
+
 
         L10 = Label(root1 , text = "       ",bg = "white")
         L10.pack()
@@ -594,7 +645,8 @@ def main():
                     else:
                         messagebox.showerror("Oops!", "Enter the username correctly")
                         
-                checkname = Button(root_username ,text = "Change",bg = "#484848" , fg = "white",command = checking)
+                checkname = Button(root_username ,text = "Change",height = 3, width = 15,bg = "#484848" , fg = "white",command = checking)
+                checkname.config(font=("copperplate",15))
                 checkname.pack()
 
                 def userhome():
@@ -604,11 +656,13 @@ def main():
                 Luser2 = Label(root_username , text = "       ",bg = "white")
                 Luser2.pack()
                 
-                userhome = Button(root_username ,text="Home",padx =50, pady = 25,bg = "#484848",fg = "white" ,command = userhome)
-                userhome.pack()
+                user_home = Button(root_username ,text="Home",height=3, width= 15 ,bg = "#484848",fg = "white" ,command = userhome)
+                user_home.config(font=("copperplate",15))
+                user_home.pack()
 
                 
-            change_username_button = Button(root_vp,text = "Change Username" ,padx =50, pady = 25,bg = "#484848",fg = "white" ,command = change_username)
+            change_username_button = Button(root_vp,text = "Change Username" ,height = 3 , width = 15,bg = "#484848",fg = "white" ,command = change_username)
+            change_username_button.config(font=("copperplate",15))
             change_username_button.pack()
             
             def change_password():
@@ -657,7 +711,8 @@ def main():
                     else:
                         messagebox.showerror("Oops!", "Enter the password correctly")
                         
-                checkpassword = Button(root_password , text = "Change",bg = "#484848" , fg = "white",command = checking_password)
+                checkpassword = Button(root_password , text = "Change",width = 15, height = 3,bg = "#484848" , fg = "white",command = checking_password)
+                checkpassword.config(font=("copperplate",15))
                 checkpassword.pack()
 
                 def passhome():
@@ -667,17 +722,21 @@ def main():
                 Lpass2 = Label(root_password , text = "       ",bg = "white")
                 Lpass2.pack()
                 
-                passhome = Button(root_password ,text = "Back", padx =50, pady = 25,bg = "#484848",fg = "white" ,command = passhome)
-                passhome.pack()
+                pass_home = Button(root_password ,text = "Back", width = 15, height = 3,bg = "#484848",fg = "white" ,command = passhome)
+                pass_home.config(font=("copperplate",15))
+                pass_home.pack()
                 
-            change_password_button = Button(root_vp,text = "Change password" ,padx =50, pady = 25,bg = "#484848",fg = "white" ,command = change_password)
+            change_password_button = Button(root_vp,text = "Change password" ,width = 15, height = 3,bg = "#484848",fg = "white" ,command = change_password)
+            change_password_button.config(font=("copperplate",15))
             change_password_button.pack()
                 
 
-            profile_home_button = Button(root_vp,text = "Home",padx =50, pady = 25,bg = "#484848",fg = "white" ,command = pro_home)
+            profile_home_button = Button(root_vp,text = "Home",width = 15, height = 3,bg = "#484848",fg = "white" ,command = pro_home)
+            profile_home_button.config(font=("copperplate",15))
             profile_home_button.pack()
 
-        Profile_button = Button(root1,text = "Profile",padx =50, pady = 25,bg = "#484848",fg = "white" ,command = viewprofile)
+        Profile_button = Button(root1,text = "Profile",width = 15, height = 3,bg = "#484848",fg = "white" ,command = viewprofile)
+        Profile_button.config(font=("copperplate",15))
         Profile_button.pack()
 
         L3 = Label(root1, text = "       ",bg = "white")
@@ -729,14 +788,16 @@ def main():
                     root_deposit.withdraw()
                     root_tr.deiconify()
                     
-                depobutton = Button(root_deposit ,text = "Invest",padx =50, pady = 25,bg = "#484848",fg = "white" ,command = depositing)
+                depobutton = Button(root_deposit ,text = "Invest",height = 2, width = 15, bg = "#484848",fg = "white" ,command = depositing)
+                depobutton.config(font=("copperplate",15))
                 depobutton.pack()
 
                 Ltran2 = Label(root_deposit , text = "       ",bg = "white")
                 Ltran2.pack()
                 
-                depohome = Button(root_deposit ,text = "Home",padx =50, pady = 25,bg = "#484848",fg = "white" ,command = depohome)
-                depohome.pack()
+                depo_home = Button(root_deposit ,text = "Home",height = 2, width = 15, bg = "#484848",fg = "white" ,command = depohome)
+                depo_home.config(font=("copperplate",15))
+                depo_home.pack()
 
             def tran_pay():
                 root_tr.withdraw()
@@ -836,36 +897,42 @@ def main():
                     root_pay.withdraw()
                     root_tr.deiconify()
                     
-                paybutton = Button(root_pay ,text = "Pay",padx =50, pady = 25,bg = "#484848",fg = "white" ,command = paying)
+                paybutton = Button(root_pay ,text = "Pay",height = 3 , width = 15, bg = "#484848",fg = "white" ,command = paying)
+                paybutton.config(font=("copperplate",15))
                 paybutton.pack()
 
                 Lpay2 = Label(root_pay , text = "       ",bg = "white")
                 Lpay2.pack()
                 
-                payhome = Button(root_pay ,text = "Back",padx =50, pady = 25,bg = "#484848",fg = "white" ,command = payhome)
-                payhome.pack()
+                pay_home = Button(root_pay ,text = "Back",height = 3, width = 15,bg = "#484848",fg = "white" ,command = payhome)
+                pay_home.config(font=("copperplate",15))
+                pay_home.pack()
                         
                 
             def tran_home():
                 root_tr.withdraw()
                 root1.deiconify()
 
-            transaction_deposit_button = Button(root_tr ,text ="Deposit",padx =50, pady = 25,bg = "#484848",fg = "white" ,command = tran_deposit)    
+            transaction_deposit_button = Button(root_tr ,text ="Deposit",height = 3 , width = 15,bg = "#484848",fg = "white" ,command = tran_deposit)    
+            transaction_deposit_button.config(font=("copperplate",15))
             transaction_deposit_button.pack()
 
             Ltran1 = Label(root1 , text = "       ",bg = "white")
             Ltran1.pack()
 
-            transaction_pay_button = Button(root_tr ,text ="Pay",padx =50, pady = 25,bg = "#484848",fg = "white" ,command = tran_pay)    
+            transaction_pay_button = Button(root_tr ,text ="Pay",height = 3 , width = 15,bg = "#484848",fg = "white" ,command = tran_pay)    
+            transaction_pay_button.config(font=("copperplate",15))
             transaction_pay_button.pack()
 
             Ltran4 = Label(root1 , text = "       ",bg = "white")
             Ltran4.pack()
 
-            transaction_home_button = Button(root_tr,text = "Home",padx =50, pady = 25,bg = "#484848",fg = "white" ,command = tran_home)
+            transaction_home_button = Button(root_tr,text = "Home",height = 3, width = 15,bg = "#484848",fg = "white" ,command = tran_home)
+            transaction_home_button.config(font=("copperplate",15))
             transaction_home_button.pack()
 
-        Transaction_button = Button(root1,text = "Transaction",padx =50, pady = 25,bg = "#484848",fg = "white" ,command = transaction)
+        Transaction_button = Button(root1,text = "Transaction",height = 3 , width = 15, bg = "#484848",fg = "white" ,command = transaction)
+        Transaction_button.config(font=("copperplate",15))
         Transaction_button.pack()
 
         L4 = Label(root1 , text = "       ",bg = "white")
@@ -887,10 +954,14 @@ def main():
                 root_led.withdraw()
                 root1.deiconify()
 
-            led_home_button = Button(root_led,text = "Home",padx =50, pady = 25,bg = "#484848",fg = "white" ,command = led_home)
+            led_home_button = Button(root_led,text = "Home",height = 3, width = 15, bg = "#484848",fg = "white" ,command = led_home)
+            led_home_button.config(font=("copperplate",15))
             led_home_button.pack()
-        Ledger_button = Button(root1,text = "Public Ledger" ,padx =50, pady = 25,bg = "#484848",fg = "white" , command = ledger)
+        
+        Ledger_button = Button(root1,text = "Public Ledger" ,height = 3 , width = 15, bg = "#484848",fg = "white" , command = ledger)
+        Ledger_button.config(font=("copperplate",15))
         Ledger_button.pack()
+        
         L5 = Label(root1 , text = "       ",bg = "white")
         L5.pack()
 
@@ -904,7 +975,7 @@ def main():
                     
                 elif i.isnumeric() == True:
                     rc += str(int(i) + 50)
-            print(list(rc))
+            
             return f"{int(rc):o}" 
         
         def blockchain():
@@ -939,10 +1010,14 @@ def main():
                 root_blc.withdraw()
                 root1.deiconify()
 
-            mining_home_button = Button(root_blc,text = "Home",padx =50, pady = 25,bg = "#484848",fg = "white" ,command = mining_home)
+            mining_home_button = Button(root_blc,text = "Home",height = 3, width = 15,bg = "#484848",fg = "white" ,command = mining_home)
+            mining_home_button.config(font=("copperplate",15))
             mining_home_button.pack()
-        Blockchain_button = Button(root1,text = "Mining",padx =50, pady = 25,bg = "#484848",fg = "white" ,command = blockchain)
+        
+        Blockchain_button = Button(root1,text = "Mining",height = 3, width = 15,bg = "#484848",fg = "white" ,command = blockchain)
+        Blockchain_button.config(font=("copperplate",15))
         Blockchain_button.pack()
+        
         L6 = Label(root1 , text = "       ",bg = "white")
         L6.pack()
 
@@ -967,16 +1042,21 @@ def main():
                 root_con.withdraw()
                 root1.deiconify()
 
-            convert_button = Button(root_con , text = "Convert",padx =25, pady = 15,bg = "#484848",fg = "white" ,command =convert)
+            convert_button = Button(root_con , text = "Convert",height = 3, width = 15, bg = "#484848",fg = "white" ,command =convert)
+            convert_button.config(font=("copperplate",15))
             convert_button.pack()
 
             L13 = Label(root_con , text = "       ",bg = "white")
             L13.pack()
         
-            con_home_button = Button(root_con,text = "Home",padx =50, pady = 25,bg = "#484848",fg = "white" ,command = con_home)
+            con_home_button = Button(root_con,text = "Home",height = 3 ,width = 15, bg = "#484848",fg = "white" ,command = con_home)
+            con_home_button.config(font=("copperplate",15))
             con_home_button.pack(side = BOTTOM)
-        Conversion_button = Button(root1,text = "Conversion",padx =50, pady = 25,bg = "#484848",fg = "white" ,command = conversion)
+        
+        Conversion_button = Button(root1,text = "Conversion",height = 3 , width = 15, bg = "#484848",fg = "white" ,command = conversion)
+        Conversion_button.config(font=("copperplate",15))
         Conversion_button.pack()
+        
         L7 = Label(root1 , text = "       ",bg = "white")
         L7.pack()
 
@@ -984,8 +1064,10 @@ def main():
             root1.withdraw()
             pg3d()
 
-        Dark_theme_button = Button(root1, text = "DARK MODE", padx =50, pady = 25,bg = "#484848",fg = "white" , command=Dark_theme)
+        Dark_theme_button = Button(root1, text = "DARK MODE", height = 3, width = 15,bg = "#484848",fg = "white" , command=Dark_theme)
+        Dark_theme_button.config(font=("copperplate",15))
         Dark_theme_button.pack()
+        
         L11 = Label(root1 , text = "       ",bg = "white")
         L11.pack()
 
@@ -993,7 +1075,8 @@ def main():
             root1.destroy()
             root.deiconify()
             
-        Home_back = Button(root1,text="HOME" , padx =50, pady = 25,bg = "#484848",fg = "white" , command=Back_to_home)
+        Home_back = Button(root1,text="HOME" , height = 3, width = 15,bg = "#484848",fg = "white" , command=Back_to_home)
+        Home_back.config(font=("copperplate",15))
         Home_back.pack()
         
     #--------------------------------------------------------------------------------------------------------------------------------------
@@ -1003,7 +1086,12 @@ def main():
             Sign_up_button.destroy()
             Sign_in_button.destroy()
             Exit_out.destroy()
-            sign_up_label = Label(root,text = "platform to signup",bg = "white") #sign up (page 2)
+            
+            L1.destroy()
+            L2.destroy()
+            
+            sign_up_label = Label(root,text = "SIGN UP",bg = "white") #sign up (page 2)
+            sign_up_label.config(font=("Copperplate",50))
             sign_up_label.pack()
             
             #Generating userID
@@ -1043,7 +1131,7 @@ def main():
                 username_Label_signup = Label(root , text = "USERNAME" ,bg = "#484848" , fg = "white")
                 username_Label_signup.pack()
                     
-                username_signup = Entry(root , bg = "#484848" , fg = "white")
+                username_signup = Entry(root , bg = "#484848" , fg = "white" , width = 30)
                 username_signup.pack()
 
                 blankline1_signup = Label(root , text = "" , bg = "white" )
@@ -1087,6 +1175,7 @@ def main():
                     variable0 = myobj.fetchall()
                     encryption = userID_generator()
                     check1 = True
+                    
                     for i in variable0:
                         if i[0] == username_signup.get():
                             check1 = False
@@ -1095,13 +1184,15 @@ def main():
                         command = "INSERT INTO users VALUES(%s,%s,%s,%s)"
                         myobj.executemany(command,l)
                         mydb.commit()
+                        
                         l = [encryption(),username_signup.get(),password_signup.get(),balance_signup.get()]
                         pg2_up_pg3()
                         
                     else:
                         messagebox.showwarning("Oops!", "Username already exists")   
                       
-                sign_up_access = Button(root,text ="Submit" , padx =50, pady = 25,bg = "#484848",fg = "white" , command= signupcheck)
+                sign_up_access = Button(root,text ="Submit" , height = 3, width = 15,bg = "#484848",fg = "white" , command= signupcheck)
+                sign_up_access.config(font=("copperplate",15))
                 sign_up_access.pack()
 
                 L8 = Label(root , text = "       ",bg = "white")
@@ -1128,7 +1219,8 @@ def main():
                     pg1()
 
                 
-                sign_up_back = Button(root,text="BACK" , padx =50, pady = 25,bg = "#484848",fg = "white" , command= pg2_sup_to_pg1)
+                sign_up_back = Button(root,text="BACK" ,height = 3 , width =15 ,bg = "#484848",fg = "white" , command= pg2_sup_to_pg1)
+                sign_up_back.config(font=("copperplate",15))
                 sign_up_back.pack()
                 
 
@@ -1138,7 +1230,12 @@ def main():
             Sign_up_button.destroy()
             Sign_in_button.destroy()
             Exit_out.destroy()
-            sign_in_label = Label(root , text = "platform to sign in",bg = "white") #pg2
+
+            L1.destroy()
+            L2.destroy()            
+            
+            sign_in_label = Label(root , text = "SIGN IN",bg = "white") #pg2
+            sign_in_label.config(font=("Copperplate",30))
             sign_in_label.pack()
             
 
@@ -1190,7 +1287,8 @@ def main():
                     else:
                         messagebox.showerror("Failed to Sign In!", "Username or Password is incorrct")
 
-                sign_in_access = Button(root,text ="Login" , padx =50, pady = 25,bg = "#484848",fg = "white" , command= signincheck)
+                sign_in_access = Button(root,text ="Login" , height=3, width = 15,bg = "#484848",fg = "white" , command= signincheck)
+                sign_in_access.config(font=("copperplate",15))
                 sign_in_access.pack()
 
                 L9 = Label(root , text = "       ",bg = "white")
@@ -1211,7 +1309,8 @@ def main():
                     L9.destroy()
                     pg1()
 
-                sign_in_back = Button(root,text="BACK" , padx =50, pady = 25,bg = "#484848",fg = "white" , command= pg2_sin_to_pg1 )
+                sign_in_back = Button(root,text="BACK" ,height =3, width = 15, bg = "#484848",fg = "white" , command= pg2_sin_to_pg1 )
+                sign_in_back.config(font=("copperplate",15)) 
                 sign_in_back.pack()
 
             signin_filling()    
@@ -1234,20 +1333,23 @@ def main():
             myobj.execute("CREATE TABLE USERS(userid varchar(50) Primary key ,username varchar(20) Unique,password varchar(30),balance integer(50))")
 
         
-        Sign_up_button = Button(root ,text ="Sign Up" ,padx =50, pady = 25,bg = "#484848",fg = "white" ,command= pg2_signup)#sign up (page 1)
+        Sign_up_button = Button(root ,text ="Sign Up" ,width =15, height = 3,bg = "#484848",fg = "white" ,command= pg2_signup)#sign up (page 1)
+        Sign_up_button.config(font=("Copperplate",15))
         Sign_up_button.pack()
 
         L1 = Label(root , text = "       ",bg = "white")
         L1.pack()
 
-        Sign_in_button = Button(root, text ="Sign In" ,padx =52 ,pady = 25,bg = "#484848",fg = "white", command= pg2_signin) #sign in (page 1)
+        Sign_in_button = Button(root, text ="Sign In" ,width =15, height = 3,bg = "#484848",fg = "white", command= pg2_signin) #sign in (page 1)
+        Sign_in_button.config(font=("Copperplate",15))
         Sign_in_button.pack()
 
         L2 = Label(root , text = "       ",bg = "white")
-        L2.pack()
+        L2.pack(side = BOTTOM)
 
-        Exit_out = Button(root,text = "Exit" ,padx =60,pady = 25,bg = "#484848",fg = "white", command= exit_out)
-        Exit_out.pack()
+        Exit_out = Button(root,text = "Exit" ,width =15, height = 3,bg = "#484848",fg = "white", command= exit_out)
+        Exit_out.config(font=("Copperplate",15))
+        Exit_out.pack(side = BOTTOM)
 
 
     pg1()
