@@ -18,26 +18,16 @@ def main():
     root.geometry("1920x1080")
     root.configure(bg = "white")
 
-    upperline1 = Label(root,text = "",bg = "#E00000",padx = 1920 , pady = 60)
+    upperline1 = Label(root, text = "",bg = "#E00000",padx = 1920 , pady = 60)
     upperline1.pack()
     
     heading=Label(root,text="CRYPTOMAX",bg = "white")
     heading.config(font=("Copperplate",50))
     heading.pack()
 
-    l1 = Label(root, text = ''' 
-                                
-                            
-                            
-                            
-                             
-                            ''' , bg = "white")
-    l1.pack()
-
     lowerline1 = Label(root,text="", bg = "#004b8f",padx = 1920 , pady = 60)
     lowerline1.pack(side = BOTTOM)
-
-
+   
     #DARK THEME
 
 
@@ -98,13 +88,15 @@ def main():
                 change_username1_labeld = Label(root_usernamed , text = "Enter the new username")
                 change_username1_labeld.pack()
                 
-                change_username1d = Entry(root_usernamed,bg = "#CF780A" , fg = "#202020")
+                change_username1d = Entry(root_usernamed,width = 15, bg = "#CF780A" , fg = "#202020")
+                change_username1d.config(font=("copperplate",15))
                 change_username1d.pack()
 
                 change_username2_labeld = Label(root_usernamed , text = "Re-enter the new username")
                 change_username2_labeld.pack()
                 
-                change_username2d = Entry(root_usernamed,bg = "#CF780A" , fg = "#202020")
+                change_username2d = Entry(root_usernamed,width = 15,bg = "#CF780A" , fg = "#202020")
+                change_username2d.config(font=("copperplate",15))
                 change_username2d.pack()
 
                 def checkingd():
@@ -162,13 +154,15 @@ def main():
                 change_password1_labeld = Label(root_passwordd , text = "Enter the new password")
                 change_password1_labeld.pack()
                 
-                change_password1d = Entry(root_passwordd,bg = "#CF780A" , fg = "#202020")
+                change_password1d = Entry(root_passwordd,width = 15,bg = "#CF780A" , fg = "#202020")
+                change_password1d.config(font=("copperplate",15))
                 change_password1d.pack()
 
                 change_password2_labeld = Label(root_passwordd , text = "Re-enter the new password")
                 change_password2_labeld.pack()
                 
-                change_password2d = Entry(root_passwordd,bg = "#CF780A" , fg = "#202020")
+                change_password2d = Entry(root_passwordd,width = 15 ,bg = "#CF780A" , fg = "#202020")
+                change_password2d.config(font=("copperplate",15))
                 change_password2d.pack()
 
                 def checking_passwordd():
@@ -407,7 +401,7 @@ def main():
             root_ledd.configure(bg = "#202020")
             
             with open("PUBLIC_LEDGER.txt") as f:
-                for i in (f.readd()).split("\n"):
+                for i in (f.read()).split("\n"):
                     Label(root_ledd , text = i , fg = "#202020" , bg = "#CF780A").pack()
                     Label(root_ledd,text = "").pack()
 
@@ -436,7 +430,7 @@ def main():
                 elif i.isnumeric() == True:
                     rcd += str(int(i) + 50)
             print(list(rcd))
-            return f"{int(rc):o}"
+            return f"{int(rcd):o}"
 
         def blockchaind():
             root1d.withdraw()
@@ -536,7 +530,7 @@ def main():
             root1d.destroy()
             root.deiconify()
             
-        Home_backd = Button(root1d,text="HOME" , padx =50,height =3 , width = 15,bg = "#CF780A",fg = "#202020" , command=Back_to_homed)
+        Home_backd = Button(root1d,text="HOME" , height =3 , width = 15,bg = "#CF780A",fg = "#202020" , command=Back_to_homed)
         Home_backd.config(font=("copperplate",15))
         Home_backd.pack()
 
@@ -549,13 +543,16 @@ def main():
         root1.geometry("1920x1080")
         root1.configure(bg = "white")
 
-        upperline1 = Label(root1,text = "",bg = "#E00000",padx = 1920 , pady = 60)
-        upperline1.pack()
-        
+        upperline2 = Label(root1,text = "",bg = "#E00000",padx = 1920 , pady = 40)
+        upperline2.pack()
+
+        lowerline2  = Label(root1,text="", bg = "#004b8f",padx= 1920, pady=40)        
+        lowerline2.pack(side = BOTTOM)
+
         global l
 
         heading=Label(root1,text="WELCOME "+ l[1],bg = "white" ,fg = "#484848")
-        heading.config(font=("Sans-serif",50))
+        heading.config(font=("Sans-serif",40))
         heading.pack()
 
 
@@ -567,7 +564,12 @@ def main():
             root_vp = Tk()
             root_vp.geometry("1920x1080")
             root_vp.configure(bg = "white")
-            pass
+            
+            upperline3 = Label(root_vp,text = "",bg = "#E00000",padx = 1920 , pady = 60)
+            upperline3.pack()
+
+            lowerline3  = Label(root_vp,text="", bg = "#004b8f",padx= 1920, pady=60)        
+            lowerline3.pack(side = BOTTOM)
         
             def pro_home():
                 root_vp.withdraw()
@@ -604,6 +606,12 @@ def main():
                 root_username = Tk()
                 root_username.geometry("1920x1080")
                 root_username.configure(bg = "white")
+
+                upperline4 = Label(root_username,text = "",bg = "#E00000",padx = 1920 , pady = 60)
+                upperline4.pack()
+
+                lowerline4  = Label(root_username,text="", bg = "#004b8f",padx= 1920, pady=60)        
+                lowerline4.pack(side = BOTTOM)
                 
                 change_username1_label = Label(root_username , text = "Enter the new username")
                 change_username1_label.pack()
@@ -671,6 +679,12 @@ def main():
                 root_password = Tk()
                 root_password.geometry("1920x1080")
                 root_password.configure(bg = "white")
+                
+                upperline5 = Label(root_password,text = "",bg = "#E00000",padx = 1920 , pady = 60)
+                upperline5.pack()
+
+                lowerline5  = Label(root_password,text="", bg = "#004b8f",padx= 1920, pady=60)        
+                lowerline5.pack(side = BOTTOM)
                 
                 change_password1_label = Label(root_password , text = "Enter the new password")
                 change_password1_label.pack()
@@ -747,12 +761,24 @@ def main():
             root_tr = Tk()
             root_tr.geometry("1920x1080")
             root_tr.configure(bg = "white")
+
+            upperline6 = Label(root_tr,text = "",bg = "#E00000",padx = 1920 , pady = 60)
+            upperline6.pack()
+
+            lowerline6  = Label(root_tr,text="", bg = "#004b8f",padx= 1920, pady=60)        
+            lowerline6.pack(side = BOTTOM)
             
             def tran_deposit():
                 root_tr.withdraw()
                 root_deposit = Tk()
                 root_deposit.geometry("1920x1080")
                 root_deposit.configure(bg = "white")
+
+                upperline7 = Label(root_deposit,text = "",bg = "#E00000",padx = 1920 , pady = 60)
+                upperline7.pack()
+
+                lowerline7  = Label(root_deposit,text="", bg = "#004b8f",padx= 1920, pady=60)        
+                lowerline7.pack(side = BOTTOM)
 
                 depol1 = Label(root_deposit , text = "Enter the amount to be deposited")
                 depol1.pack()
@@ -804,6 +830,12 @@ def main():
                 root_pay = Tk()
                 root_pay.geometry("1920x1080")
                 root_pay.configure(bg = "white")
+
+                upperline8 = Label(root_pay,text = "",bg = "#E00000",padx = 1920 , pady = 60)
+                upperline8.pack()
+
+                lowerline8  = Label(root_pay,text="", bg = "#004b8f",padx= 1920, pady=60)        
+                lowerline8.pack(side = BOTTOM)
 
                 payl1 = Label(root_pay , text = "Enter the amount to be payed")
                 payl1.pack()
@@ -944,6 +976,12 @@ def main():
             root_led = Tk()
             root_led.geometry("1920x1080")
             root.configure(bg = "white")
+
+            upperline9 = Label(root_led,text = "",bg = "#E00000",padx = 1920 , pady = 60)
+            upperline9.pack()
+
+            lowerline9  = Label(root_led,text="", bg = "#004b8f",padx= 1920, pady=60)        
+            lowerline9.pack(side = BOTTOM)
             
             with open("PUBLIC_LEDGER.txt") as f:
                 for i in (f.read()).split("\n"):
@@ -983,12 +1021,17 @@ def main():
             root_blc = Tk()
             root_blc.geometry("1920x1080")
             root_blc.configure(bg = "white")
+
+            upperline10 = Label(root_blc,text = "",bg = "#E00000",padx = 1920 , pady = 60)
+            upperline10.pack()
+
+            lowerline10 = Label(root_blc,text="", bg = "#004b8f",padx= 1920, pady=60)       
+            lowerline10.pack(side = BOTTOM)
             
                 
             x = []
             with open("PUBLIC_LEDGER.txt") as f:
                 for i in (f.read()).split("\n"):
-                    print(i)
                     x.append(i)
                     
             megablock = {}
@@ -1026,6 +1069,12 @@ def main():
             root_con = Tk()
             root_con.geometry("1920x1080")
             root_con.configure(bg = "white")
+
+            upperline11 = Label(root_con,text = "",bg = "#E00000",padx = 1920 , pady = 60)
+            upperline11.pack()
+
+            lowerline11 = Label(root_con,text="", bg = "#004b8f",padx= 1920, pady=60)        
+            lowerline11.pack(side = BOTTOM)
 
             conversion_entry = Entry(root_con , width = 25 , bg = "#484848",fg = "white")
             conversion_entry.pack()
@@ -1087,11 +1136,12 @@ def main():
             Sign_in_button.destroy()
             Exit_out.destroy()
             
+            l1.destroy()
             L1.destroy()
             L2.destroy()
             
             sign_up_label = Label(root,text = "SIGN UP",bg = "white") #sign up (page 2)
-            sign_up_label.config(font=("Copperplate",50))
+            sign_up_label.config(font=("Copperplate",30))
             sign_up_label.pack()
             
             #Generating userID
@@ -1131,7 +1181,8 @@ def main():
                 username_Label_signup = Label(root , text = "USERNAME" ,bg = "#484848" , fg = "white")
                 username_Label_signup.pack()
                     
-                username_signup = Entry(root , bg = "#484848" , fg = "white" , width = 30)
+                username_signup = Entry(root ,width = 15, bg = "#484848" , fg = "white" )
+                username_signup.config(font=("copperplate",15))
                 username_signup.pack()
 
                 blankline1_signup = Label(root , text = "" , bg = "white" )
@@ -1141,17 +1192,20 @@ def main():
                 password_Label_signup = Label(root , text = "PASSWORD" ,bg = "#484848" , fg = "white")
                 password_Label_signup.pack()
                     
-                password_signup = Entry(root , bg = "#484848" , fg = "white")
+                password_signup = Entry(root ,width=15, bg = "#484848" , fg = "white")
+                password_signup.config(font=("copperplate",15))
                 password_signup.pack()
 
                 blankline2_signup = Label(root , text = "" , bg = "white" )
+                blankline2_signup.config(font=("copperplate",15))
                 blankline2_signup.pack()
 
                 #account balance
                 balance_Label_signup = Label(root , text = "DEPOSIT" ,bg = "#484848" , fg = "white")
                 balance_Label_signup.pack()
                     
-                balance_signup = Entry(root , bg = "#484848" , fg = "white")
+                balance_signup = Entry(root ,width = 15, bg = "#484848" , fg = "white")
+                balance_signup.config(font=("copperplate",15))
                 balance_signup.pack()
                     
                 blankline3_signup = Label(root , text = "" , bg = "white" )
@@ -1171,6 +1225,8 @@ def main():
                         pg3()
 
                     global l    
+                    l = []
+
                     myobj.execute("SELECT username from users")
                     variable0 = myobj.fetchall()
                     encryption = userID_generator()
@@ -1230,7 +1286,8 @@ def main():
             Sign_up_button.destroy()
             Sign_in_button.destroy()
             Exit_out.destroy()
-
+            
+            l1.destroy()
             L1.destroy()
             L2.destroy()            
             
@@ -1245,7 +1302,8 @@ def main():
                 username_Label_signin = Label(root , text = "USERNAME" ,bg = "#484848" , fg = "white")
                 username_Label_signin.pack()
                     
-                username_signin = Entry(root , bg = "#484848" , fg = "white")
+                username_signin = Entry(root ,width = 15, bg = "#484848" , fg = "white")
+                username_signin.config(font=("copperplate",15))
                 username_signin.pack()
 
                 blankline4_signin = Label(root , text = "" , bg = "white" )
@@ -1255,7 +1313,8 @@ def main():
                 password_Label_signin = Label(root , text = "PASSWORD" ,bg = "#484848" , fg = "white")
                 password_Label_signin.pack()
                     
-                password_signin = Entry(root , bg = "#484848" , fg = "white")
+                password_signin = Entry(root ,width = 15, bg = "#484848" , fg = "white")
+                password_signin.config(font=("copperplate",15))
                 password_signin.pack()
 
                 blankline5_signin = Label(root , text = "" , bg = "white" )
@@ -1273,7 +1332,9 @@ def main():
                         root.withdraw()
                         pg3()
 
-                    global l    
+                    global l
+                    l = []
+
                     myobj.execute("SELECT * from users")
                     variable0 = myobj.fetchall()
                     check1 = True
@@ -1316,7 +1377,9 @@ def main():
             signin_filling()    
 
         def exit_out():
+            import sys
             root.destroy()
+            sys.exit()
     #--------------------------------------------------------------------------------------------------------------------------------
         #Creating table alone
             
@@ -1332,6 +1395,15 @@ def main():
         if check0 == False:
             myobj.execute("CREATE TABLE USERS(userid varchar(50) Primary key ,username varchar(20) Unique,password varchar(30),balance integer(50))")
 
+        
+        l1 = Label(root, text = ''' 
+                                
+                            
+                            
+                            
+                             
+                            ''' , bg = "white")
+        l1.pack()
         
         Sign_up_button = Button(root ,text ="Sign Up" ,width =15, height = 3,bg = "#484848",fg = "white" ,command= pg2_signup)#sign up (page 1)
         Sign_up_button.config(font=("Copperplate",15))
