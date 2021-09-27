@@ -228,6 +228,7 @@ def main():
                 depol1d.pack()
 
                 depoentry1d = Entry(root_depositd , bg = "#202020" , fg = "#CF780A")
+                depoentry1d.config(font=("copperplate",15))
                 depoentry1d.pack()
 
                 Ltran3d = Label(root_depositd , text = "       ",bg = "#202020")
@@ -274,6 +275,7 @@ def main():
                 payl1d.pack()
 
                 payentry1d = Entry(root_payd , bg = "#CF780A" , fg = "#202020")
+                payentry1d.config(font=("copperplate",15))
                 payentry1d.pack()
 
                 Lpay3d = Label(root_payd , text = "       ",bg = "#202020")
@@ -283,6 +285,7 @@ def main():
                 payl2d.pack()
 
                 payentry2d = Entry(root_payd , bg = "#CF780A" , fg = "#202020")
+                payentry2d.config(font=("copperplate",15))
                 payentry2d.pack()
 
                 Lpay4d = Label(root_payd , text = "       ",bg = "#202020")
@@ -486,6 +489,7 @@ def main():
                 root1d.deiconify()
 
             conversion_entryd = Entry(root_cond , width = 25 , bg = "#484848",fg = "white")
+            conversion_entryd.config(font=("copperplate",15))
             conversion_entryd.pack()
 
             def convertd():
@@ -617,12 +621,14 @@ def main():
                 change_username1_label.pack()
                 
                 change_username1 = Entry(root_username,bg = "#484848" , fg = "white")
+                change_username1.config(font=("copperplate",15))
                 change_username1.pack()
 
                 change_username2_label = Label(root_username , text = "Re-enter the new username")
                 change_username2_label.pack()
                 
                 change_username2 = Entry(root_username,bg = "#484848" , fg = "white")
+                change_username2.config(font=("copperplate",15))
                 change_username2.pack()
 
                 def checking():
@@ -690,12 +696,14 @@ def main():
                 change_password1_label.pack()
                 
                 change_password1 = Entry(root_password,bg = "#484848" , fg = "white")
+                change_password1.config(font=("copperplate",15))
                 change_password1.pack()
 
                 change_password2_label = Label(root_password , text = "Re-enter the new password")
                 change_password2_label.pack()
                 
                 change_password2 = Entry(root_password,bg = "#484848" , fg = "white")
+                change_password2.config(font=("copperplate",15))
                 change_password2.pack()
 
                 def checking_password():
@@ -784,6 +792,7 @@ def main():
                 depol1.pack()
 
                 depoentry1 = Entry(root_deposit , bg = "#484848" , fg = "white")
+                depoentry1.config(font=("copperplate",15))
                 depoentry1.pack()
 
                 Ltran3 = Label(root_deposit , text = "       ",bg = "white")
@@ -841,6 +850,7 @@ def main():
                 payl1.pack()
 
                 payentry1 = Entry(root_pay , bg = "#484848" , fg = "white")
+                payentry1.config(font=("copperplate",15))
                 payentry1.pack()
 
                 Lpay3 = Label(root_pay , text = "       ",bg = "white")
@@ -850,6 +860,7 @@ def main():
                 payl2.pack()
 
                 payentry2 = Entry(root_pay , bg = "#484848" , fg = "white")
+                payentry2.config(font=("copperplate",15))
                 payentry2.pack()
 
                 Lpay4 = Label(root_pay , text = "       ",bg = "white")
@@ -1077,6 +1088,7 @@ def main():
             lowerline11.pack(side = BOTTOM)
 
             conversion_entry = Entry(root_con , width = 25 , bg = "#484848",fg = "white")
+            conversion_entry.config(font=("copperplate",15))
             conversion_entry.pack()
             conversion_entry.insert(0,"Enter the amount in Rupees")
             
