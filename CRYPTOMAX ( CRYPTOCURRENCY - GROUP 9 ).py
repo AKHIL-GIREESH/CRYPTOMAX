@@ -35,269 +35,427 @@ def main():  #main part
         root1d.geometry("1920x1080")
         root1d.configure(bg = "#202020")
 
-        upperline2d = Label(root1d,text = "",bg = "#CF780A",padx = 1920 , pady = 60)
-        upperline2d.pack()
+        upperline2 = Label(root1d,text = "",bg = "#CF780A",padx = 1920 , pady = 40)
+        upperline2.pack()
 
-        L10d = Label(root1d , text = "       ",bg = "#202020")
-        L10d.pack()
+        lowerline2  = Label(root1d,text="", bg = "#CF780A",padx= 1920, pady=40)        
+        lowerline2.pack(side = BOTTOM)
 
-        def viewprofiled():
+        global l
+
+        heading=Label(root1d,text="WELCOME "+ l[1],bg = "#202020" ,fg = "#CF780A")
+        heading.config(font=("Sans-serif",40))
+        heading.pack()
+
+
+        L10 = Label(root1d , text = "       ",bg = "#202020")
+        L10.pack()
+
+        def viewprofile():
             root1d.withdraw()
             root_vpd = Tk()
             root_vpd.geometry("1920x1080")
             root_vpd.configure(bg = "#202020")
-            pass
+            
+            upperline3 = Label(root_vpd,text = "",bg = "#CF780A",padx = 1920 , pady = 60)
+            upperline3.pack()
+
+            heading_vp = Label(root_vpd, text = "PROFILE", bg = "#202020" , fg = "#CF780A")
+            heading_vp.config(font=("copperplate",50))
+            heading_vp.pack()
+
+            l_vp = Label(root_vpd ,bg = "#202020")
+            l_vp.pack()
+
+            lowerline3  = Label(root_vpd,text="", bg = "#CF780A",padx= 1920, pady=60)        
+            lowerline3.pack(side = BOTTOM)
         
-            def pro_homed():
+            def pro_home():
                 root_vpd.withdraw()
                 root1d.deiconify()
 
             global l    
-            profile_usernamed = Label(root_vpd , text = l[0][1] , bg = "#CF780A",fg = "#202020")
-            profile_usernamed.pack()
+            profile_username = Label(root_vpd ,width = 18 , text = "USERNAME:" + l[1] , bg = "#202020",fg = "#CF780A")
+            profile_username.config(font=("copperplate",15))
+            profile_username.pack()
 
-            pl1d = Label(root_vpd , text = "                " , bg = "#CF780A",fg = "#484848")
-            pl1d.pack()
+            pl1 = Label(root_vpd , text = "                " , bg = "#202020")
+            pl1.pack()
             
-            profile_passwordd = Label(root_vpd , text = l[0][2] , bg = "#CF780A",fg = "#202020")
-            profile_passwordd.pack()
+            profile_password = Label(root_vpd ,width = 18, text = "PASSWORD:" + l[2] , bg = "#202020",fg = "#CF780A")
+            profile_password.config(font=("copperplate",15))
+            profile_password.pack()
 
-            pl2d = Label(root_vpd , text = "                " , bg = "#CF780A",fg = "#202020")
-            pl2d.pack()
+            pl2 = Label(root_vpd , text = "                " , bg = "#202020")
+            pl2.pack()
 
-            profile_balanced = Label(root_vpd , text = l[0][3] , bg = "#CF780A",fg = "#202020")
-            profile_balanced.pack()
+            profile_balance = Label(root_vpd ,width = 18, text = "BALANCE:" + str(l[3]) , bg = "#202020",fg = "#CF780A")
+            profile_balance.config(font=("copperplate",15))
+            profile_balance.pack()
 
-            pl3d = Label(root_vpd , text = "                " , bg = "#CF780A",fg = "#202020")
-            pl3d.pack()
+            pl3 = Label(root_vpd , text = "                " , bg = "#202020")
+            pl3.pack()
 
-            profile_encryptedd = Label(root_vpd , text = l[0][0] , bg = "#CF780A",fg = "#202020")
-            profile_encryptedd.pack()
+            profile_encrypted = Label(root_vpd ,width = 50, text = "USER-ID: " + l[0] , bg = "#202020",fg = "#CF780A")
+            profile_encrypted.config(font=("copperplate",15))
+            profile_encrypted.pack()
 
-            pl4d = Label(root_vpd , text = "                " , bg = "#CF780A",fg = "#202020")
-            pl4d.pack()
-                    
-            def change_usernamed():
+            pl4 = Label(root_vpd , text = "                " , bg = "#202020")
+            pl4.pack()
+
+            def change_username():
                 
                 root_vpd.withdraw()
                 root_usernamed = Tk()
                 root_usernamed.geometry("1920x1080")
                 root_usernamed.configure(bg = "#202020")
-                
-                change_username1_labeld = Label(root_usernamed , text = "Enter the new username")
-                change_username1_labeld.pack()
-                
-                change_username1d = Entry(root_usernamed,width = 18, bg = "#CF780A" , fg = "#202020")
-                change_username1d.config(font=("copperplate",15))
-                change_username1d.pack()
 
-                change_username2_labeld = Label(root_usernamed , text = "Re-enter the new username")
-                change_username2_labeld.pack()
-                
-                change_username2d = Entry(root_usernamed,width = 18,bg = "#CF780A" , fg = "#202020")
-                change_username2d.config(font=("copperplate",15))
-                change_username2d.pack()
+                upperline4 = Label(root_usernamed,text = "",bg = "#CF780A",padx = 1920 , pady = 60)
+                upperline4.pack()
 
-                def checkingd():
-                    if change_username1d.get() == change_username2d.get():
+                heading_user = Label(root_usernamed, text = "CHANGE USERNAME", bg = "#202020" , fg = "#CF780A")
+                heading_user.config(font=("copperplate",50))
+                heading_user.pack()
+
+                l_user = Label(root_usernamed ,bg = "#202020")
+                l_user.pack()
+
+                lowerline4  = Label(root_usernamed,text="", bg = "#CF780A",padx= 1920, pady=60)        
+                lowerline4.pack(side = BOTTOM)
+                
+                change_username1_label = Label(root_usernamed ,width=30, text = "Enter the new username",fg = "#CF780A",bg = "#202020")
+                change_username1_label.config(font=("copperplate",15))
+                change_username1_label.pack()
+                
+                change_username1 = Entry(root_usernamed,bg = "#CF780A" , fg = "#202020")
+                change_username1.config(font=("copperplate",15))
+                change_username1.pack()
+
+                l_user1 = Label(root_usernamed, bg = "white")
+                l_user1.pack()
+
+                change_username2_label = Label(root_usernamed , width = 30, text = "Re-enter the new username", fg = "#CF780A" , bg = "#202020")
+                change_username2_label.config(font=("copperplate",15))
+                change_username2_label.pack()
+                
+                change_username2 = Entry(root_usernamed,bg = "#CF780A" , fg = "#202020")
+                change_username2.config(font=("copperplate",15))
+                change_username2.pack()
+
+                def checking():
+                    if change_username1.get() == change_username2.get():
                         import mysql.connector
                         mydb = mysql.connector.connect(host="localhost",user="root",passwd = "lmao",database = "CRYPTOCURRENCY")
                         myobj = mydb.cursor()
 
                         global l   
-                        list1d = [change_username1d.get() , l[0]]
+                        list1 = [change_username1.get() , l[0]]
                         command = "UPDATE users SET username = %s WHERE userid = %s"
-                        myobj.execute(command,list1d)
+                        myobj.execute(command,list1)
                         mydb.commit()
-                        l[1] = change_username1d.get()
+                        l[1] = change_username1.get()
 
-                        change_username1_labeld.destroy()
-                        change_username1d.destroy()
+                        change_username1_label.destroy()
+                        change_username1.destroy()
 
-                        change_username2_labeld.destroy()
-                        change_username2d.destroy()
+                        change_username2_label.destroy()
+                        change_username2.destroy()
 
-                        checknamed.destroy()
+                        checkname.destroy()
+
+                        userl2 = Label(root_usernamed , text= "Updated successfully" , bg = "#CF780A" , fg = "#202020" , width = 30)
+                        userl2.config(font=("copperplate",15))
+                        userl2.pack()
                         
                         
                     else:
                         messagebox.showerror("Oops!", "Enter the username correctly")
                         
-                checknamed = Button(root_usernamed ,text = "CHANGE",width = 18 , height = 3,bg = "#CF780A" , fg = "#202020",command = checkingd)
-                checknamed.config(font=("copperplate",15))
-                checknamed.pack()
+                l_username = Label(root_usernamed,bg = "#202020")
+                l_username.pack()
 
-                def userhomed():
+                checkname = Button(root_usernamed ,text = "Change",height = 3, width = 18,bg = "#CF780A" , fg = "#202020",command = checking)
+                checkname.config(font=("copperplate",15))
+                checkname.pack()
+
+                def userhome():
                     root_usernamed.withdraw()
                     root_vpd.deiconify()
 
-                Luser2d = Label(root_usernamed , text = "       ",bg = "#202020")
-                Luser2d.pack()
+                Luser2 = Label(root_usernamed , text = "       ",bg = "#202020")
+                Luser2.pack(side = BOTTOM)
                 
-                user_homed = Button(root_usernamed ,text="BACK",width = 18 , height = 3,bg = "#CF780A",fg = "#202020" ,command = userhomed)
-                user_homed.config(font=("copperplate",15))
-                user_homed.pack()
+                user_home = Button(root_usernamed ,text="Home",height=3, width= 15 ,bg = "#CF780A",fg = "#202020" ,command = userhome)
+                user_home.config(font=("copperplate",15))
+                user_home.pack(side = BOTTOM)
 
                 
-            change_username_buttond = Button(root_vpd,text = "CHANGE USERNAME" ,width = 18 , height = 3,bg = "#CF780A",fg = "#202020" ,command = change_usernamed)
-            change_username_buttond.config(font=("copperplate",15))
-            change_username_buttond.pack()
+            change_username_button = Button(root_vpd,text = "CHANGE USERNAME" ,height = 3 , width = 18,bg = "#CF780A",fg = "#202020" ,command = change_username)
+            change_username_button.config(font=("copperplate",14))
+            change_username_button.pack()
+
+            l_vp3 = Label(root_vpd ,bg = "#202020")
+            l_vp3.pack()
             
-            def change_passwordd():
+            def change_password():
 
                 root_vpd.withdraw()
                 root_passwordd = Tk()
                 root_passwordd.geometry("1920x1080")
                 root_passwordd.configure(bg = "#202020")
                 
-                change_password1_labeld = Label(root_passwordd , text = "Enter the new password")
-                change_password1_labeld.pack()
-                
-                change_password1d = Entry(root_passwordd,width = 18,bg = "#CF780A" , fg = "#202020")
-                change_password1d.config(font=("copperplate",15))
-                change_password1d.pack()
+                upperline5 = Label(root_passwordd,text = "",bg = "#CF780A",padx = 1920 , pady = 60)
+                upperline5.pack()
 
-                change_password2_labeld = Label(root_passwordd , text = "Re-enter the new password")
-                change_password2_labeld.pack()
-                
-                change_password2d = Entry(root_passwordd,width = 18 ,bg = "#CF780A" , fg = "#202020")
-                change_password2d.config(font=("copperplate",15))
-                change_password2d.pack()
+                heading_pass = Label(root_passwordd, text = "CHANGE PASSWORD", bg = "#202020" , fg = "#CF780A")
+                heading_pass.config(font=("copperplate",50))
+                heading_pass.pack()
 
-                def checking_passwordd():
-                    if change_password1d.get() == change_password2d.get():
+                l_pass = Label(root_passwordd ,bg = "#202020")
+                l_pass.pack()
+                
+                lowerline5  = Label(root_passwordd,text="", bg = "#CF780A",padx= 1920, pady=60)        
+                lowerline5.pack(side = BOTTOM)
+                
+                change_password1_label = Label(root_passwordd , text = "Enter the new password",bg = "#202020", width =30)
+                change_password1_label.config(font=("copperplate",15))
+                change_password1_label.pack()
+                
+                change_password1 = Entry(root_passwordd,bg = "#CF780A" , fg = "#202020")
+                change_password1.config(font=("copperplate",15))
+                change_password1.pack()
+
+                l_pass = Label(root_passwordd , bg = "#202020")
+                l_pass.pack()
+
+                change_password2_label = Label(root_passwordd , text = "Re-enter the new password",bg = "#202020", width =30)
+                change_password2_label.config(font=("copperplate",15))
+                change_password2_label.pack()
+                
+                change_password2 = Entry(root_passwordd,bg = "#CF780A" , fg = "#202020")
+                change_password2.config(font=("copperplate",15))
+                change_password2.pack()
+
+                l_pass1 = Label(root_passwordd , bg = "#202020")
+                l_pass1.pack()
+
+                def checking_password():
+                    if change_password1.get() == change_password2.get():
                         import mysql.connector
                         mydb = mysql.connector.connect(host="localhost",user="root",passwd = "lmao",database = "CRYPTOCURRENCY")
                         myobj = mydb.cursor()
 
                         global l   
-                        list2 = [change_password1d.get() , l[0]]
+                        list2 = [change_password1.get() , l[0]]
                         command = "UPDATE users SET password= %s WHERE userid = %s"
                         myobj.execute(command,list2)
                         mydb.commit()
-                        l[2] = change_password1d.get()
+                        l[2] = change_password1.get()
+
+                        change_password1_label.destroy()
+                        change_password1.destroy()
+
+                        change_password2_label.destroy()
+                        change_password2.destroy()
+
+                        checkpassword.destroy()
+
+                        passl2 = Label(root_passwordd , text= "Updated successfully" , width= 30,fg = "#CF780A", bg = "#202020")
+                        passl2.config(font=("copperplate",15))
+                        passl2.pack()
+                        
                     else:
                         messagebox.showerror("Oops!", "Enter the password correctly")
                         
-                checkpasswordd = Button(root_passwordd ,text = "CHANGE" ,width = 18 , height = 3,bg = "#CF780A" , fg = "#202020",command = checking_passwordd)
-                checkpasswordd.config(font=("copperplate",15))
-                checkpasswordd.pack()
+                checkpassword = Button(root_passwordd , text = "Change",width = 18, height = 3,bg = "#CF780A" , fg = "#202020",command = checking_password)
+                checkpassword.config(font=("copperplate",15))
+                checkpassword.pack()
 
-                def passhomed():
+                def passhome():
                     root_passwordd.withdraw()
                     root_vpd.deiconify()
-
-                Lpass2d = Label(root_passwordd , text = "       ",bg = "#202020")
-                Lpass2d.pack()
                 
-                passhomedd = Button(root_passwordd ,text = "BACK" ,width = 18 , height = 3,bg = "#CF780A",fg = "#202020" ,command = passhomed)
-                passhomedd.config(font=("copperplate", 15))
-                passhomedd.pack()
+                Lpass2 = Label(root_passwordd , text = "       ",bg = "#202020")
+                Lpass2.pack(side = BOTTOM)
                 
-            change_password_buttond = Button(root_vpd,text = "CHANGE PASSWORD" ,width = 18 , height = 3,bg = "#CF780A",fg = "#202020" ,command = change_passwordd)
-            change_password_buttond.config(font=("copperplate",15))
-            change_password_buttond.pack()
-                    
-            profile_home_buttondd = Button(root_vpd,text = "BACK",width = 18 , height = 3,bg = "#CF780A",fg = "#202020" ,command = pro_homed)
-            profile_home_buttondd.config(font=("copperplate",15))
-            profile_home_buttondd.pack()
-        
+                pass_home = Button(root_passwordd ,text = "BACK", width = 18, height = 3,bg = "#CF780A",fg = "#202020" ,command = passhome)
+                pass_home.config(font=("copperplate",15))
+                pass_home.pack(side = BOTTOM)
 
-        Profile_buttond = Button(root1d,text = "PROFILE",width = 18 , height = 3,bg = "#CF780A",fg = "#202020" ,command = viewprofiled)
-        Profile_buttond.config(font=("copperplate",15))
-        Profile_buttond.pack()
+            def delete_account():
+                import mysql.connector
+                mydb = mysql.connector.connect(host="localhost",user="root",passwd = "lmao",database = "CRYPTOCURRENCY")
+                myobj = mydb.cursor()
+                
+                global l   
+                list2 = [l[0]]
+                command = "DELETE FROM users WHERE userid = %s"
+                myobj.execute(command,list2)
+                mydb.commit()
+                
+                root_vpd.withdraw()
+                pg1()
+            
+            change_password_button = Button(root_vpd,text = "CHANGE PASSWORD" ,width = 18, height = 3,bg = "#CF780A",fg = "#202020" ,command = change_password)
+            change_password_button.config(font=("copperplate",14))
+            change_password_button.pack()
 
-        L3d = Label(root1d, text = "       ",bg = "#202020")
-        L3d.pack()
+            l_vp5 = Label(root_vpd ,bg = "#202020")
+            l_vp5.pack()
 
-        def transactiond():
+            change_delete_button = Button(root_vpd,text = "DELETE ACCOUNT" ,height = 3 , width = 18,bg = "#CF780A",fg = "#202020" ,command = delete_account)
+            change_delete_button.config(font=("copperplate",14))
+            change_delete_button.pack()
+
+            l_vp4 = Label(root_vpd,bg = "#202020")
+            l_vp4.pack(side = BOTTOM)
+
+            profile_home_button = Button(root_vpd,text = "HOME",width = 17, height = 3,bg = "#CF780A",fg = "#202020" ,command = pro_home)
+            profile_home_button.config(font=("copperplate",15))
+            profile_home_button.pack(side = BOTTOM)
+
+        Profile_button = Button(root1d,text = "PROFILE",width = 18, height = 3,bg = "#CF780A",fg = "#202020" ,command = viewprofile)
+        Profile_button.config(font=("copperplate",15))
+        Profile_button.pack()
+
+        L3 = Label(root1d, text = "       ",bg = "#202020")
+        L3.pack()
+
+        def transaction():
             root1d.withdraw()
             root_trd = Tk()
             root_trd.geometry("1920x1080")
             root_trd.configure(bg = "#202020")
-            pass
 
-            def tran_depositd():
+            upperline6 = Label(root_trd,text = "",bg = "#CF780A",padx = 1920 , pady = 60)
+            upperline6.pack()
+
+            heading_tran = Label(root_trd, text = "TRANSACTION", bg = "#202020" , fg = "#CF780A")
+            heading_tran.config(font=("copperplate",50))
+            heading_tran.pack()
+
+            l_tran = Label(root_trd ,bg = "#202020")
+            l_tran.pack()
+            
+            lowerline6  = Label(root_trd,text="", bg = "#CF780A",padx= 1920, pady=60)        
+            lowerline6.pack(side = BOTTOM)
+            
+            def tran_deposit():
                 root_trd.withdraw()
                 root_depositd = Tk()
                 root_depositd.geometry("1920x1080")
                 root_depositd.configure(bg = "#202020")
 
-                depol1d = Label(root_depositd , text = "Enter the amount to be deposited")
-                depol1d.pack()
+                upperline7 = Label(root_depositd,text = "",bg = "#CF780A",padx = 1920 , pady = 60)
+                upperline7.pack()
 
-                depoentry1d = Entry(root_depositd , bg = "#202020" , fg = "#CF780A")
-                depoentry1d.config(font=("copperplate",15))
-                depoentry1d.pack()
+                heading_depo = Label(root_depositd, text = "DEPOSIT", bg = "#202020" , fg = "#CF780A")
+                heading_depo.config(font=("copperplate",50))
+                heading_depo.pack()
 
-                Ltran3d = Label(root_depositd , text = "       ",bg = "#202020")
-                Ltran3d.pack()
+                l_depo = Label(root_depositd ,bg = "#202020")
+                l_depo.pack()
                 
-                def depositingd():
+                lowerline7  = Label(root_depositd,text="", bg = "#CF780A",padx= 1920, pady=60)        
+                lowerline7.pack(side = BOTTOM)
+
+                depol1 = Label(root_depositd , text = "Enter the amount to be deposited", width = 30 , bg = "#202020")
+                depol1.config(font=("copperplate",15))
+                depol1.pack()
+
+                depoentry1 = Entry(root_depositd , bg = "#CF780A" , fg = "#202020")
+                depoentry1.config(font=("copperplate",15))
+                depoentry1.pack()
+
+                Ltran3 = Label(root_depositd , text = "       ",bg = "#202020")
+                Ltran3.pack()
+                
+                def depositing():
                     import mysql.connector
                     mydb = mysql.connector.connect(host="localhost",user="root",passwd = "lmao",database = "CRYPTOCURRENCY")
                     myobj = mydb.cursor()
 
                     global l
 
-                    list1d = [int(depoentry1d.get()) + l[3] , l[0]]
+                    list1 = [int(depoentry1.get()) + l[3] , l[0]]
                     command = "UPDATE users SET balance = %s WHERE userid = %s"
-                    myobj.execute(command,list1d)
+                    myobj.execute(command,list1)
                     mydb.commit()
-                    l[3] += int(depoentry1d.get()) 
+                    l[3] += int(depoentry1.get()) 
 
-                    depol2d = Label(root_depositd , text= "Deposited successfully")
-                    depol2d.pack()
+                    depol1.destroy()
+                    depoentry1.destroy()
+                    Ltran3.destroy()
+                    depobutton.destroy()
 
-                def depohomed():
+                    depol2 = Label(root_depositd , text= "Deposited successfully", width=30 , fg = "#CF780A",bg = "#202020")
+                    depol2.config(font=("copperplate",15))
+                    depol2.pack()
+
+                def depohome():
                     root_depositd.withdraw()
                     root_trd.deiconify()
                     
-                depobuttond = Button(root_depositd ,text = "INVEST",width = 18,height = 3,bg = "#CF780A",fg = "#202020" ,command = depositingd)
-                depobuttond.config(font=("copperplate",15))
-                depobuttond.pack()
+                depobutton = Button(root_depositd ,text = "Invest",height = 3, width = 18, bg = "#CF780A",fg = "#202020" ,command = depositing)
+                depobutton.config(font=("copperplate",15))
+                depobutton.pack()
 
-                Ltran2d = Label(root_depositd , text = "       ",bg = "#202020")
-                Ltran2d.pack()
+                Ltran2 = Label(root_depositd , text = "       ",bg = "#202020")
+                Ltran2.pack(side = BOTTOM)
                 
-                dephomed = Button(root_depositd ,text = "HOME",width = 18, height = 3,bg = "#CF780A",fg = "#202020" ,command = depohomed)
-                dephomed.config(font=("copperplate",15))
-                dephomed.pack()
+                depo_home = Button(root_depositd ,text = "Home",height = 3, width = 18, bg = "#CF780A",fg = "#202020" ,command = depohome)
+                depo_home.config(font=("copperplate",15))
+                depo_home.pack(side = BOTTOM)
 
-            def tran_payd():
+            def tran_pay():
                 root_trd.withdraw()
                 root_payd = Tk()
                 root_payd.geometry("1920x1080")
                 root_payd.configure(bg = "#202020")
 
-                payl1d = Label(root_payd , text = "Enter the amount to be payed")
-                payl1d.pack()
+                upperline8 = Label(root_payd,text = "",bg = "#CF780A",padx = 1920 , pady = 60)
+                upperline8.pack()
 
-                payentry1d = Entry(root_payd , bg = "#CF780A" , fg = "#202020")
-                payentry1d.config(font=("copperplate",15))
-                payentry1d.pack()
+                heading_pay = Label(root_payd, text = "PAY", bg = "#202020" , fg = "#CF780A")
+                heading_pay.config(font=("copperplate",50))
+                heading_pay.pack()
 
-                Lpay3d = Label(root_payd , text = "       ",bg = "#202020")
-                Lpay3d.pack()
+                l_pay = Label(root_payd ,bg = "#202020")
+                l_pay.pack()
+                
+                lowerline8  = Label(root_payd,text="", bg = "#CF780A",padx= 1920, pady=60)        
+                lowerline8.pack(side = BOTTOM)
 
-                payl2d = Label(root_payd , text = "Enter the name of the user")
-                payl2d.pack()
+                payl1 = Label(root_payd , text = "Enter the amount to be payed",bg = "#202020",)
+                payl1.config(font=("copperplate",15))
+                payl1.pack()
 
-                payentry2d = Entry(root_payd , bg = "#CF780A" , fg = "#202020")
-                payentry2d.config(font=("copperplate",15))
-                payentry2d.pack()
+                payentry1 = Entry(root_payd , bg = "#CF780A" , fg = "#202020")
+                payentry1.config(font=("copperplate",15))
+                payentry1.pack()
 
-                Lpay4d = Label(root_payd , text = "       ",bg = "#202020")
-                Lpay4d.pack()
+                Lpay3 = Label(root_payd , text = "       ",bg = "#202020")
+                Lpay3.pack()
 
-                def find_userd(x):
+                payl2 = Label(root_payd , text = "Enter the name of the user",bg = "#202020")
+                payl2.config(font=("copperplate",15))
+                payl2.pack()
+
+                payentry2 = Entry(root_payd , bg = "#CF780A" , fg = "#202020")
+                payentry2.config(font=("copperplate",15))
+                payentry2.pack()
+
+                Lpay4 = Label(root_payd , text = "       ",bg = "#202020")
+                Lpay4.pack()
+
+                def find_user(x):
                     import mysql.connector
                     mydb = mysql.connector.connect(host="localhost",user="root",passwd = "lmao",database = "CRYPTOCURRENCY")
                     myobj = mydb.cursor()
                     myobj.execute("SELECT username FROM users ")
-                    variable2d = myobj.fetchall()
+                    variable2 = myobj.fetchall()
                     check = False
-                    for i in variable2d:
+                    for i in variable2:
                         if i == (x,):
                             check = True
                     if check == True:
@@ -305,226 +463,397 @@ def main():  #main part
                     return False
 
                 def ledger(x,y,z):
-                    list3d = [x+str(y)+z]
+                    list3 = [x+str(y)+z]
                     with open("PUBLIC_LEDGER.txt","a") as f:
-                        for i in list3d:
-                            f.write(i+"\n") 
+                        for i in list3:
+                            f.write(i)
+                            f.write('\n')
                     
                     with open("PUBLIC_LEDGER.txt") as f:
                         return [i for i in (f.read()).split("\n")]
 
-                def payingd():
+                def paying():
                     import mysql.connector
                     mydb = mysql.connector.connect(host="localhost",user="root",passwd = "lmao",database = "CRYPTOCURRENCY")
                     myobj = mydb.cursor()
 
                     global l
 
-                    if find_userd(payentry2d.get()) == True:
-                        xd = l[3] - int(payentry1d.get())
-                        l1d = [xd,l[0]]
-                        command1d = "UPDATE users SET balance = %s WHERE userid =%s"
-                        myobj.execute(command1d,l1d)
+                    if find_user(payentry2.get()) == True:
+                        x = l[3] - int(payentry1.get())
+                        l1 = [x,l[0]]
+                        command1 = "UPDATE users SET balance = %s WHERE userid =%s"
+                        myobj.execute(command1,l1)
                         mydb.commit()
 
                         myobj.execute("SELECT username , balance from users")
 
-                        yd = myobj.fetchall()
+                        y = myobj.fetchall()
                             
-                        for i in yd:
-                            if i[0] == payentry2d.get() :
-                                xd = i[1] + int(payentry1d.get())
+                        for i in y:
+                            if i[0] == payentry2.get() :
+                                x = i[1] + int(payentry1.get())
                             
                             
-                        l2d = [xd, payentry2d.get()]  
+                        l2 = [x, payentry2.get()]  
 
-                        commandd = "UPDATE users \
+                        command = "UPDATE users \
                                     SET balance = %s \
                                     WHERE username =%s"
-                        myobj.execute(commandd,l2d)
+                        myobj.execute(command,l2)
                         mydb.commit()
-                        ledgerd(l[1],payentry1d.get(),payentry2d.get())
+                        ledger(l[1],payentry1.get(),payentry2.get())
 
-                        payl2d = Label(root_payd , text= "Deposited successfully")
-                        payl2d.pack()
+                        payl1.destroy()
+                        payentry1.destroy()
+                        Lpay3.destroy()
+                        
+                        payl2.destroy()
+                        payentry2.destroy()
+                        Lpay4.destroy()
+
+                        paybutton.destroy()
+
+                        payl5 = Label(root_payd , text= "Deposited successfully", width =30,fg = "#CF780A",bg = "#202020")
+                        payl5.config(font=("copperplate",15))
+                        payl5.pack()
 
                     else:
                         messagebox.showerror("Oops!", "User doesn't exist")
-                
-                def payhomed():
+    
+                def payhome():
                     root_payd.withdraw()
                     root_trd.deiconify()
                     
-                paybuttond = Button(root_payd ,text = "PAY",height = 3 , width = 18 ,bg = "#CF780A",fg = "#202020" ,command = payingd)
-                paybuttond.config(font=("copperplate",15))
-                paybuttond.pack()
+                paybutton = Button(root_payd ,text = "Pay",height = 3 , width = 18, bg = "#CF780A",fg = "#202020" ,command = paying)
+                paybutton.config(font=("copperplate",15))
+                paybutton.pack()
 
-                Lpay2d = Label(root_payd , text = "       ",bg = "#202020")
-                Lpay2d.pack()
+                Lpay2 = Label(root_payd , text = "       ",bg = "#202020")
+                Lpay2.pack(side = BOTTOM)
                 
-                payhomd = Button(root_payd ,text = "BACK",height = 3 , width = 18 ,bg = "#CF780A",fg = "#202020" ,command = payhomed)
-                payhomd.config(font=("copperplate",15))
-                payhomd.pack()
-            
+                pay_home = Button(root_payd ,text = "Back",height = 3, width = 18,bg = "#CF780A",fg = "#202020" ,command = payhome)
+                pay_home.config(font=("copperplate",15))
+                pay_home.pack(side = BOTTOM)
+                        
+            def tran_withdraw():
+                root_trd.withdraw()
+                root_withd = Tk()
+                root_withd.geometry("1920x1080")
+                root_withd.configure(bg = "white")
 
-            def tran_homed():
+                upperline7 = Label(root_withd,text = "",bg = "#CF780A",padx = 1920 , pady = 60)
+                upperline7.pack()
+
+                heading_with = Label(root_withd, text = "WITHDRAW", bg = "#202020" , fg = "#CF780A")
+                heading_with.config(font=("copperplate",50))
+                heading_with.pack()
+
+                l_with = Label(root_withd ,bg = "white")
+                l_with.pack()
+                
+                lowerline7  = Label(root_withd,text="", bg = "#202020",padx= 1920, pady=60)        
+                lowerline7.pack(side = BOTTOM)
+
+                withl1 = Label(root_withd , text = "Enter the amount to be withdrawn", width = 30 , bg = "#202020")
+                withl1.config(font=("copperplate",15))
+                withl1.pack()
+
+                withentry1 = Entry(root_withd , bg = "#CF780A" , fg = "#202020")
+                withentry1.config(font=("copperplate",15))
+                withentry1.pack()
+
+                Ltran3 = Label(root_withd , text = "       ",bg = "#202020")
+                Ltran3.pack()
+                
+                def withdrawing():
+                    import mysql.connector
+                    mydb = mysql.connector.connect(host="localhost",user="root",passwd = "lmao",database = "CRYPTOCURRENCY")
+                    myobj = mydb.cursor()
+
+                    global l
+
+                    x = l[3] - int(withentry1.get())
+                    list1 = [ x , l[0]]
+                    command = "UPDATE users SET balance = %s WHERE userid = %s"
+                    myobj.execute(command,list1)
+                    mydb.commit()
+                    l[3] += int(withentry1.get()) 
+
+                    withl1.destroy()
+                    withentry1.destroy()
+                    Ltran3.destroy()
+                    withbutton.destroy()
+
+                    withl2 = Label(root_withd , text= "Withdrawn successfully", width=30 , fg = "#CF780A",bg = "#202020")
+                    withl2.config(font=("copperplate",15))
+                    withl2.pack()
+
+                def withhome():
+                    root_withd.withdraw()
+                    root_trd.deiconify()
+                    
+                withbutton = Button(root_withd ,text = "Withdraw",height = 3, width = 18, bg = "#CF780A",fg = "#202020" ,command = withdrawing)
+                withbutton.config(font=("copperplate",15))
+                withbutton.pack()
+
+                Ltran2 = Label(root_withd , text = "       ",bg = "white")
+                Ltran2.pack(side = BOTTOM)
+                
+                with_home = Button(root_withd ,text = "BACK",height = 3, width = 18, bg = "#CF780A",fg = "#202020" ,command = withhome)
+                with_home.config(font=("copperplate",15))
+                with_home.pack(side = BOTTOM)
+
+                
+
+            def tran_home():
                 root_trd.withdraw()
                 root1d.deiconify()
 
-            transaction_deposit_button = Button(root_trd,text="DEPOSIT", height = 3, width =15,bg = "#CF780A",fg = "#202020" ,command = tran_depositd)
+            transaction_deposit_button = Button(root_trd ,text ="DEPOSIT",height = 3 , width = 18,bg = "#CF780A",fg = "#202020" ,command = tran_deposit)    
             transaction_deposit_button.config(font=("copperplate",15))
             transaction_deposit_button.pack()
 
-            transaction_label1 = Label(root_trd,text = "           " , bg = "#202020")
-            transaction_label1.pack()
-            
-            transaction_pay_button = Button(root_trd,text="DEPOSIT",height = 3, width = 18,bg = "#CF780A",fg = "#202020" ,command = tran_payd)
+            Ltran1 = Label(root_trd , text = "",bg = "#202020")
+            Ltran1.pack()
+
+            transaction_pay_button = Button(root_trd ,text ="PAY",height = 3 , width = 18,bg = "#CF780A",fg = "#202020" ,command = tran_pay)    
             transaction_pay_button.config(font=("copperplate",15))
             transaction_pay_button.pack()
 
-            transaction_label2 = Label(root_trd,text = "           " , bg = "#202020")
-            transaction_label2.pack()
+            Ltran5 = Label(root_trd , text = "",bg = "#202020")
+            Ltran5.pack()
 
-            transaction_home_buttond = Button(root_trd,text = "BACK",height = 3, width = 18, bg = "#CF780A",fg = "#202020" ,command = tran_homed)
-            transaction_home_buttond.config(font=("copperplate",15))
-            transaction_home_buttond.pack()
+            transaction_withdraw_button = Button(root_trd ,text ="WITHDRAW",height = 3 , width = 18,bg = "#CF780A",fg = "#202020" ,command = tran_withdraw)
+            transaction_withdraw_button.config(font=("copperplate",15))
+            transaction_withdraw_button.pack()
 
-        Transaction_buttond = Button(root1d,text = "TRANSACTION",height = 3 , width = 18 ,bg = "#CF780A",fg = "#202020" ,command = transactiond)
-        Transaction_buttond.config(font=("copperplate",15))
-        Transaction_buttond.pack()
+            Ltran4 = Label(root_trd , text = "       ",bg = "#202020")
+            Ltran4.pack(side = BOTTOM)
 
-        L4d = Label(root1d , text = "       ",bg = "#202020")
-        L4d.pack()
+            transaction_home_button = Button(root_trd,text = "Home",height = 3, width = 18,bg = "#CF780A",fg = "#202020" ,command = tran_home)
+            transaction_home_button.config(font=("copperplate",15))
+            transaction_home_button.pack(side = BOTTOM)
 
-        def ledgerd():
+        Transaction_button = Button(root1d,text = "TRANSACTION",height = 3 , width = 18, bg = "#CF780A",fg = "#202020" ,command = transaction)
+        Transaction_button.config(font=("copperplate",15))
+        Transaction_button.pack()
+
+        L4 = Label(root1d , text = "       ",bg = "#202020")
+        L4.pack()
+  
+
+        def ledger():
             root1d.withdraw()
             root_ledd = Tk()
             root_ledd.geometry("1920x1080")
             root_ledd.configure(bg = "#202020")
+
+            upperline9 = Label(root_ledd,text = "",bg = "#CF780A",padx = 1920 , pady = 60)
+            upperline9.pack()
+
+            heading_led = Label(root_ledd, text = "PUBLIC LEDGER", bg = "#202020" , fg = "#CF780A")
+            heading_led.config(font=("copperplate",35))
+            heading_led.pack()
+
+            l_led = Label(root_ledd ,bg = "#202020")
+            l_led.pack()
+            
+            lowerline9  = Label(root_ledd,text="", bg = "#CF780A",padx= 1920, pady=60)        
+            lowerline9.pack(side = BOTTOM)
             
             with open("PUBLIC_LEDGER.txt") as f:
                 for i in (f.read()).split("\n"):
-                    Label(root_ledd , text = i , fg = "#202020" , bg = "#CF780A").pack()
-                    Label(root_ledd,text = "").pack()
+                    Label(root_ledd,text = "",bg = "#202020").pack()
+                    x = Label(root_ledd , text = i , fg = "#CF780A" , bg = "#202020" , width = 30)
+                    x.config(font=("copperplate",15))
+                    x.pack()
+                    
 
-            def led_homed():
+            def led_home():
                 root_ledd.withdraw()
                 root1d.deiconify()
 
-            led_home_buttond = Button(root_ledd,text = "BACK",height = 3,width = 18 ,bg = "#CF780A",fg = "#202020" ,command = led_homed)
-            led_home_buttond.config(font=("copperplate",15))
-            led_home_buttond.pack()
-        
-        Ledger_buttond = Button(root1d,text = "PUBLIC LEDGER" ,height = 3 , width = 18,bg = "#CF780A",fg = "#202020" , command = ledgerd)
-        Ledger_buttond.config(font=("copperplate",15))
-        Ledger_buttond.pack()
-        
-        L5d = Label(root1d , text = "       ",bg = "#202020")
-        L5d.pack()
+            l_led = Label(root_ledd , text = "" , bg = "#202020")
+            l_led.pack(side = BOTTOM)
 
-        def RCGENERATORd(xd):
-            xd = xd.lower()
-            rcd = ""
-            for i in xd:
+            led_home_button = Button(root_ledd,text = "Home",height = 3, width = 18, bg = "#CF780A",fg = "#202020" ,command = led_home)
+            led_home_button.config(font=("copperplate",15))
+            led_home_button.pack(side = BOTTOM)
+        
+        Ledger_button = Button(root1d,text = "Public Ledger" ,height = 3 , width = 18, bg = "#CF780A",fg = "#202020" , command = ledger)
+        Ledger_button.config(font=("copperplate",15))
+        Ledger_button.pack()
+        
+        L5 = Label(root1d , text = "       ",bg = "#202020")
+        L5.pack()
+
+        
+        def RCGENERATOR(x):
+            x = x.lower()
+            rc = ""
+            for i in x:
                 if i.isalpha() == True:
-                    rcd += str(ord(i) - 80)
+                    rc += str(ord(i) - 80)
                     
                 elif i.isnumeric() == True:
-                    rcd += str(int(i) + 50)
-
-            return f"{int(rcd):o}"
-
-        def blockchaind():
+                    rc += str(int(i) + 50)
+            
+            return f"{int(rc):o}" 
+        
+        def blockchain():
             root1d.withdraw()
             root_blcd = Tk()
             root_blcd.geometry("1920x1080")
             root_blcd.configure(bg = "#202020")
+
+            upperline10 = Label(root_blcd,text = "",bg = "#CF780A",padx = 1920 , pady = 60)
+            upperline10.pack()
+
+            heading_blc = Label(root_blcd, text = "BLOCKCHAIN", bg = "#202020" , fg = "#CF780A")
+            heading_blc.config(font=("copperplate",50))
+            heading_blc.pack()
+
+            l_con = Label(root_blcd ,text = '''
+                                            
+                                            ''',bg = "#202020")
+            l_con.pack()
+
+            lowerline10 = Label(root_blcd,text="", bg = "#CF780A",padx= 1920, pady=60)       
+            lowerline10.pack(side = BOTTOM)
             
-            xd = []
+                
+            x = []
             with open("PUBLIC_LEDGER.txt") as f:
                 for i in (f.read()).split("\n"):
-                    xd.append(i)
+                    x.append(i)
                     
-            megablockd = {}
-            fristtransd = True
+            megablock = {}
+            fristtrans = True
 
-            for i in range(len(xd)):
-                if fristtransd == True:
-                    rcd = RCGENERATORd(xd[i])
-                    megablockd[rcd] = ["BEGINNING",xd[i]]
-                    prevrcd = rcd
-                    fristtransd = False
+            for i in range(len(x)):
+                if fristtrans == True:
+                    rc = RCGENERATOR(x[i])
+                    megablock[rc] = ["BEGINNING",x[i]]
+                    prevrc = rc
+                    fristtrans = False
                 else:
-                    rcd = RCGENERATORd(xd[i])
-                    megablockd[str(int(prevrcd) + int(rcd))] = [prevrcd,xd[i]]
-                    prevrcd = str(int(prevrcd) + int(rcd)) 
+                    rc = RCGENERATOR(x[i])
+                    megablock[str(int(prevrc) + int(rc))] = [prevrc,x[i]]
+                    prevrc = str(int(prevrc) + int(rc)) 
             
-            Label(root_blcd , text= megablockd).pack()
+            a = Label(root_blcd , text= "THE BEGINNING", bg = "#CF780A" , fg = "#202020", width = 30 , height = 3)
+            a.config(font=("copperplate",10))
+            a.pack()
             
-            def mining_homed():
+            for i in megablock.items():
+                
+                y = Label(root_blcd , text = "" ,bg = "#CF780A")
+                y.pack()
+
+                z = Label(root_blcd , text = "" , bg = "#CF780A")
+                z.pack()
+                
+                x = Button(root_blcd , text = i , bg = "#CF780A" , fg = "#202020", width = 30 , height = 3)
+                x.config(font=("copperplate",10))
+                x.pack()
+
+            def mining_home():
                 root_blcd.withdraw()
                 root1d.deiconify()
 
-            mining_home_buttond = Button(root_blcd,text = "Home",height = 3, width = 18,bg = "#CF780A",fg = "#202020" ,command = mining_homed)
-            mining_home_buttond.config(font=("copperplate",15))
-            mining_home_buttond.pack()
-        
-        Blockchain_buttond = Button(root1d,text = "MINING",height = 3, width = 18,bg = "#CF780A",fg = "#202020" ,command = blockchaind)
-        Blockchain_buttond.config(font=("copperplate",15))
-        Blockchain_buttond.pack()
-        
-        L6d = Label(root1d , text = "       ",bg = "#202020")
-        L6d.pack()
+            l_blc = Label(root_blcd,bg = "#202020")
+            l_blc.pack(side = BOTTOM)
 
-        def conversiond():
+            mining_home_button = Button(root_blcd,text = "Home",height = 3, width = 18,bg = "#CF780A",fg = "#202020" ,command = mining_home)
+            mining_home_button.config(font=("copperplate",15))
+            mining_home_button.pack(side = BOTTOM)
+        
+        Blockchain_button = Button(root1d,text = "Mining",height = 3, width = 18,bg = "#CF780A",fg = "#202020" ,command = blockchain)
+        Blockchain_button.config(font=("copperplate",15))
+        Blockchain_button.pack()
+        
+        L6 = Label(root1d , text = "       ",bg = "#202020")
+        L6.pack()
+
+        def conversion():
             root1d.withdraw()
             root_cond = Tk()
             root_cond.geometry("1920x1080")
             root_cond.configure(bg = "#202020")
-            pass
-            def con_homed():
+
+            upperline11 = Label(root_cond,text = "",bg = "#CF780A",padx = 1920 , pady = 60)
+            upperline11.pack()
+
+            heading_con = Label(root_cond, text = "CONVERSION", bg = "#202020" , fg = "#CF780A")
+            heading_con.config(font=("copperplate",50))
+            heading_con.pack()
+
+            l_con = Label(root_cond ,text = '''
+                                            
+                                            ''',bg = "#202020")
+            l_con.pack()
+
+            lowerline11 = Label(root_cond,text="", bg = "#CF780A",padx= 1920, pady=60)        
+            lowerline11.pack(side = BOTTOM)
+            
+            l_con1 = Label(root_cond,text = "ENTER THE AMOUNT IN INR", width = 30,bg = "#202020")
+            l_con1.config(font=("copperplate",15))
+            l_con1.pack()
+
+            l_con3 = Label(root_cond,bg = "#202020")
+            l_con3.pack()
+
+            conversion_entry = Entry(root_cond , width = 25 , bg = "#CF780A",fg = "#202020")
+            conversion_entry.config(font=("copperplate",15))
+            conversion_entry.pack()
+            
+            def convert():
+                convert_button.destroy()
+                x = int(conversion_entry.get())//10
+                
+                l_con2 = Label(root_cond,text = "AMOUNT IN CRYPTOMAX", width = 30 , bg = "#202020")
+                l_con2.config(font=("copperplate",15))
+                l_con2.pack()
+
+                conversion_label = Label(root_cond ,text = x ,width = 25 , bg = "#202020",fg = "#CF780A")
+                conversion_label.config(font=("copperplate",15))
+                conversion_label.pack()
+                
+            
+            def con_home():
                 root_cond.withdraw()
                 root1d.deiconify()
 
-            conversion_entryd = Entry(root_cond , width = 25 , bg = "#484848",fg = "white")
-            conversion_entryd.config(font=("copperplate",15))
-            conversion_entryd.pack()
+            L14 = Label(root_cond , text = "       ",bg = "#202020")
+            L14.pack()
 
-            def convertd():
-                convert_buttond.destroy()
-                x = int(conversion_entryd.get())//10
-                
-                conversion_labeld = Label(root_cond ,text = x)
-                conversion_labeld.pack()
-                
-                conversion_labeld.insert(0,"Enter the amount in rupees",fg="white")
-                conversion_labeld.pack()
+            convert_button = Button(root_cond , text = "CONVERT",height = 3, width = 18, bg = "#CF780A",fg = "#202020" ,command =convert)
+            convert_button.config(font=("copperplate",15))
+            convert_button.pack()
 
-            convert_buttond = Button(root_cond , text = "Convert",height = 3 , width = 18,bg = "#CF780A",fg = "#202020" ,command =convertd)
-            convert_buttond.config(font=("copperplate",15))
-            convert_buttond.pack()
-            
-
-            L13d = Label(root_cond, text = "       ",bg = "#202020")
-            L13d.pack()
-
-            con_home_buttond = Button(root_cond,text = "Home",height = 3, width = 18,bg = "#CF780A",fg = "#202020" ,command = con_homed)
-            con_home_buttond.config(font=("copperplate",15))
-            con_home_buttond.pack(side = BOTTOM)
+            L13 = Label(root_cond , text = "       ",bg = "#202020")
+            L13.pack(side = BOTTOM)
         
-        Conversion_buttond = Button(root1d,text = "Conversion",height=3, width = 18,bg = "#CF780A",fg = "#202020" ,command = conversiond)
-        Conversion_buttond.config(font=("copperplate",15))
-        Conversion_buttond.pack()
+            con_home_button = Button(root_cond,text = "HOME",height = 3 ,width = 18, bg = "#CF780A",fg = "#202020" ,command = con_home)
+            con_home_button.config(font=("copperplate",15))
+            con_home_button.pack(side = BOTTOM)
         
-        L7d = Label(root1d , text = "       ",bg = "#202020")
-        L7d.pack()
+        Conversion_button = Button(root1d,text = "CONVERSION",height = 3 , width = 18, bg = "#CF780A",fg = "#202020" ,command = conversion)
+        Conversion_button.config(font=("copperplate",15))
+        Conversion_button.pack()
+        
+        L7 = Label(root1d , text = "       ",bg = "#202020")
+        L7.pack()
 
         def Light_theme():
             root1d.withdraw()
             pg3()
 
-        Light_theme_button = Button(root1d, text = "LIGHT MODE", padx =50, pady = 25,bg = "#CF780A",fg = "#202020" , command=Light_theme)
+        Light_theme_button = Button(root1d, text = "LIGHT MODE",width = 18 , height = 3,bg = "#CF780A",fg = "#202020" , command=Light_theme)
+        Light_theme_button.config(font=("copperplate",15))
         Light_theme_button.pack()
+        
         L11d = Label(root1d , text = "       ",bg = "#202020")
         L11d.pack()
         
@@ -535,7 +864,7 @@ def main():  #main part
         Home_backd = Button(root1d,text="HOME" , height =3 , width = 18,bg = "#CF780A",fg = "#202020" , command=Back_to_homed)
         Home_backd.config(font=("copperplate",15))
         Home_backd.pack()
-
+    
     #--------------------------------------------------------------------------------------------------------------------------------------
 
     #REGULAR THEME
@@ -641,6 +970,9 @@ def main():  #main part
                 change_username1.config(font=("copperplate",15))
                 change_username1.pack()
 
+                l_user1 = Label(root_username, bg = "white")
+                l_user1.pack()
+
                 change_username2_label = Label(root_username , width = 30, text = "Re-enter the new username", fg = "#484848" , bg = "white")
                 change_username2_label.config(font=("copperplate",15))
                 change_username2_label.pack()
@@ -670,7 +1002,8 @@ def main():  #main part
 
                         checkname.destroy()
 
-                        userl2 = Label(root_username , text= "Updated successfully")
+                        userl2 = Label(root_username , text= "Updated successfully",width=30,fg = "#484848" , bg = "white")
+                        userl2.config(font=("copperplate",15))
                         userl2.pack()
                         
                         
@@ -766,7 +1099,8 @@ def main():  #main part
 
                         checkpassword.destroy()
 
-                        passl2 = Label(root_password , text= "Updated successfully")
+                        passl2 = Label(root_password , text= "Updated successfully", width = 30, fg ="#484848",bg = "white")
+                        passl2.config(font=("copperplate",15))
                         passl2.pack()
                         
                     else:
@@ -779,18 +1113,40 @@ def main():  #main part
                 def passhome():
                     root_password.withdraw()
                     root_vp.deiconify()
-
+                
                 Lpass2 = Label(root_password , text = "       ",bg = "white")
                 Lpass2.pack(side = BOTTOM)
                 
                 pass_home = Button(root_password ,text = "BACK", width = 18, height = 3,bg = "#484848",fg = "white" ,command = passhome)
                 pass_home.config(font=("copperplate",15))
                 pass_home.pack(side = BOTTOM)
+
+            def delete_account():
+                import mysql.connector
+                mydb = mysql.connector.connect(host="localhost",user="root",passwd = "lmao",database = "CRYPTOCURRENCY")
+                myobj = mydb.cursor()
                 
+                global l   
+                list2 = [l[0]]
+                command = "DELETE FROM users WHERE userid = %s"
+                myobj.execute(command,list2)
+                mydb.commit()
+                
+                root_vp.withdraw()
+                root.deiconify()
+                
+            
             change_password_button = Button(root_vp,text = "CHANGE PASSWORD" ,width = 18, height = 3,bg = "#484848",fg = "white" ,command = change_password)
             change_password_button.config(font=("copperplate",14))
             change_password_button.pack()
-                
+
+            l_vp5 = Label(root_vp ,bg = "white")
+            l_vp5.pack()
+
+            change_delete_button = Button(root_vp,text = "DELETE ACCOUNT" ,height = 3 , width = 18,bg = "#484848",fg = "white" ,command = delete_account)
+            change_delete_button.config(font=("copperplate",14))
+            change_delete_button.pack()
+
             l_vp4 = Label(root_vp,bg = "white")
             l_vp4.pack(side = BOTTOM)
 
@@ -872,7 +1228,8 @@ def main():  #main part
                     Ltran3.destroy()
                     depobutton.destroy()
 
-                    depol2 = Label(root_deposit , text= "Deposited successfully")
+                    depol2 = Label(root_deposit , text= "Deposited successfully", width=30 , fg = "#484848",bg = "white")
+                    depol2.config(font=("copperplate",15))
                     depol2.pack()
 
                 def depohome():
@@ -949,7 +1306,8 @@ def main():  #main part
                     list3 = [x+str(y)+z]
                     with open("PUBLIC_LEDGER.txt","a") as f:
                         for i in list3:
-                            f.write(i+"\n")
+                            f.write("\n")
+                            f.write(i)
                     
                     with open("PUBLIC_LEDGER.txt") as f:
                         return [i for i in (f.read()).split("\n")]
@@ -994,13 +1352,16 @@ def main():  #main part
                         payentry2.destroy()
                         Lpay4.destroy()
 
-                        payl5 = Label(root_pay , text= "Deposited successfully")
+                        paybutton.destroy()
+                        
+                        payl5 = Label(root_pay , text= "Deposited successfully", width =30,fg = "#484848",bg = "white")
+                        payl5.config(font=("copperplate",15))
                         payl5.pack()
 
 
                     else:
                         messagebox.showerror("Oops!", "User doesn't exist")
-                
+    
                 def payhome():
                     root_pay.withdraw()
                     root_tr.deiconify()
@@ -1016,7 +1377,74 @@ def main():  #main part
                 pay_home.config(font=("copperplate",15))
                 pay_home.pack(side = BOTTOM)
                         
+            def tran_withdraw():
+                root_tr.withdraw()
+                root_with = Tk()
+                root_with.geometry("1920x1080")
+                root_with.configure(bg = "white")
+
+                upperline7 = Label(root_with,text = "",bg = "#E00000",padx = 1920 , pady = 60)
+                upperline7.pack()
+
+                heading_with = Label(root_with, text = "WITHDRAW", bg = "white" , fg = "#484848")
+                heading_with.config(font=("copperplate",50))
+                heading_with.pack()
+
+                l_with = Label(root_with ,bg = "white")
+                l_with.pack()
                 
+                lowerline7  = Label(root_with,text="", bg = "#004b8f",padx= 1920, pady=60)        
+                lowerline7.pack(side = BOTTOM)
+
+                withl1 = Label(root_with , text = "Enter the amount to be withdrawn", width = 30 , bg = "white")
+                withl1.config(font=("copperplate",15))
+                withl1.pack()
+
+                withentry1 = Entry(root_with , bg = "#484848" , fg = "white")
+                withentry1.config(font=("copperplate",15))
+                withentry1.pack()
+
+                Ltran3 = Label(root_with , text = "       ",bg = "white")
+                Ltran3.pack()
+                
+                def withdrawing():
+                    import mysql.connector
+                    mydb = mysql.connector.connect(host="localhost",user="root",passwd = "lmao",database = "CRYPTOCURRENCY")
+                    myobj = mydb.cursor()
+
+                    global l
+
+                    x = l[3] - int(withentry1.get())
+                    list1 = [ x , l[0]]
+                    command = "UPDATE users SET balance = %s WHERE userid = %s"
+                    myobj.execute(command,list1)
+                    mydb.commit()
+                    l[3] += int(withentry1.get()) 
+
+                    withl1.destroy()
+                    withentry1.destroy()
+                    Ltran3.destroy()
+                    withbutton.destroy()
+
+                    withl2 = Label(root_with , text= "Withdrawn successfully", width=30 , fg = "#484848",bg = "white")
+                    withl2.config(font=("copperplate",15))
+                    withl2.pack()
+
+                def withhome():
+                    root_with.withdraw()
+                    root_tr.deiconify()
+                    
+                withbutton = Button(root_with ,text = "Withdraw",height = 3, width = 18, bg = "#484848",fg = "white" ,command = withdrawing)
+                withbutton.config(font=("copperplate",15))
+                withbutton.pack()
+
+                Ltran2 = Label(root_with , text = "       ",bg = "white")
+                Ltran2.pack(side = BOTTOM)
+                
+                with_home = Button(root_with ,text = "BACK",height = 3, width = 18, bg = "#484848",fg = "white" ,command = withhome)
+                with_home.config(font=("copperplate",15))
+                with_home.pack(side = BOTTOM)
+
             def tran_home():
                 root_tr.withdraw()
                 root1.deiconify()
@@ -1031,6 +1459,13 @@ def main():  #main part
             transaction_pay_button = Button(root_tr ,text ="PAY",height = 3 , width = 18,bg = "#484848",fg = "white" ,command = tran_pay)    
             transaction_pay_button.config(font=("copperplate",15))
             transaction_pay_button.pack()
+
+            Ltran5 = Label(root_tr , text = "",bg = "white")
+            Ltran5.pack()
+
+            transaction_withdraw_button = Button(root_tr ,text ="WITHDRAW",height = 3 , width = 18,bg = "#484848",fg = "white" ,command = tran_withdraw)
+            transaction_withdraw_button.config(font=("copperplate",15))
+            transaction_withdraw_button.pack()
 
             Ltran4 = Label(root_tr , text = "       ",bg = "white")
             Ltran4.pack(side = BOTTOM)
@@ -1085,7 +1520,7 @@ def main():  #main part
             led_home_button.config(font=("copperplate",15))
             led_home_button.pack(side = BOTTOM)
         
-        Ledger_button = Button(root1,text = "Public Ledger" ,height = 3 , width = 18, bg = "#484848",fg = "white" , command = ledger)
+        Ledger_button = Button(root1,text = "PUBLIC LEDGER" ,height = 3 , width = 18, bg = "#484848",fg = "white" , command = ledger)
         Ledger_button.config(font=("copperplate",15))
         Ledger_button.pack()
         
@@ -1145,19 +1580,22 @@ def main():  #main part
                     rc = RCGENERATOR(x[i])
                     megablock[str(int(prevrc) + int(rc))] = [prevrc,x[i]]
                     prevrc = str(int(prevrc) + int(rc)) 
-            #Label(root_blc , text= megablock).pack()
+            
+            a = Label(root_blc , text= "THE BEGINNING", bg = "#484848" , fg = "white", width = 60 , height = 3)
+            a.config(font=("copperplate",10))
+            a.pack()
+            
             for i in megablock.items():
-                x = Button(root_blc , text = i , bg = "#484848" , fg = "white", width = 30 , height = 3)
-                x.config(font=("copperplate",10))
-                x.pack()
-
-                y = Label(root_blc , text = "|" , bg = "white", fg = "#484848")
-                y.config(font=("copperplate",15))
+                
+                y = Label(root_blc , text = "" ,bg = "#484848")
                 y.pack()
 
-                z = Label(root_blc , text = "|" , bg = "white", fg = "#484848")
-                z.config(font=("copperplate",15))
+                z = Label(root_blc , text = "" , bg = "#484848")
                 z.pack()
+                
+                x = Button(root_blc , text = i , bg = "#484848" , fg = "white", width = 60 , height = 3)
+                x.config(font=("copperplate",10))
+                x.pack()
 
             def mining_home():
                 root_blc.withdraw()
@@ -1170,7 +1608,7 @@ def main():  #main part
             mining_home_button.config(font=("copperplate",15))
             mining_home_button.pack(side = BOTTOM)
         
-        Blockchain_button = Button(root1,text = "Mining",height = 3, width = 18,bg = "#484848",fg = "white" ,command = blockchain)
+        Blockchain_button = Button(root1,text = "MINING",height = 3, width = 18,bg = "#484848",fg = "white" ,command = blockchain)
         Blockchain_button.config(font=("copperplate",15))
         Blockchain_button.pack()
         
@@ -1226,12 +1664,15 @@ def main():  #main part
                 root_con.withdraw()
                 root1.deiconify()
 
+            L14 = Label(root_con , text = "       ",bg = "white")
+            L14.pack()
+
             convert_button = Button(root_con , text = "CONVERT",height = 3, width = 18, bg = "#484848",fg = "white" ,command =convert)
             convert_button.config(font=("copperplate",15))
             convert_button.pack()
 
             L13 = Label(root_con , text = "       ",bg = "white")
-            L13.pack()
+            L13.pack(side = BOTTOM)
         
             con_home_button = Button(root_con,text = "HOME",height = 3 ,width = 18, bg = "#484848",fg = "white" ,command = con_home)
             con_home_button.config(font=("copperplate",15))
@@ -1340,7 +1781,7 @@ def main():  #main part
                 password_Label_signup.config(font=("copperplate",15))
                 password_Label_signup.pack()
                     
-                password_signup = Entry(root ,width=15, bg = "#484848" , fg = "white")
+                password_signup = Entry(root ,width=18, bg = "#484848" , fg = "white")
                 password_signup.config(font=("copperplate",15))
                 password_signup.pack()
 
